@@ -70,7 +70,7 @@ trait Solver extends GameDef {
     else {
       val more =  for {
         (bb,mm) <- initial
-        elem <- newNeighborsOnly(neighborsWithHistory(bb,mm),explored)
+        elem <- newNeighborsOnly(neighborsWithHistory(bb,mm),explored + bb )
       } yield elem
 
       initial #::: from( more, explored ++ more.map( _._1).toSet[Block] )
