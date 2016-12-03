@@ -39,7 +39,7 @@ public class Percolation {
     // is site (row, col) full?
     public boolean isFull(int row, int col) {
         if(notValid(row,col)) throw new java.lang.IndexOutOfBoundsException();
-        return UF.connected(0,(row-1)*range+col-1);
+        return UF.connected(0,(row-1)*range+col);
     }
 
     // does the system percolate?
@@ -60,25 +60,25 @@ public class Percolation {
 
     private void joinLeft(int row,int col){
         if(notValid(row,col-1) || !isOpen(row,col-1)) return;
-        int cur = (row-1)*range+col-1;
+        int cur = (row-1)*range+col;
         UF.union(cur,cur-1);
     }
 
     private void joinRight(int row,int col){
         if(notValid(row,col+1) || !isOpen(row,col+1)) return;
-        int cur = (row-1)*range+col-1;
+        int cur = (row-1)*range+col;
         UF.union(cur,cur+1);
     }
 
     private void joinUp(int row,int col){
-        int cur = (row-1)*range+col-1;
+        int cur = (row-1)*range+col;
         if(row==1) UF.union(0,cur);
         if(notValid(row-1,col) || !isOpen(row-1,col)) return;
         UF.union(cur,cur-range);
     }
 
     private void joinDown(int row,int col){
-        int cur = (row-1)*range+col-1;
+        int cur = (row-1)*range+col;
         if(row==range) UF.union(bottom,cur);
         if(notValid(row+1,col) || !isOpen(row+1,col)) return;
         UF.union(cur,cur+range);
