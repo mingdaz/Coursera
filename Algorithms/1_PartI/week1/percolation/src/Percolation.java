@@ -7,7 +7,7 @@ public class Percolation {
     // create n-by-n grid, with all sites blocked
     public Percolation(int n) {
         if(n<1) throw new java.lang.IllegalArgumentException();
-        int i,j,k;
+        int i;
         range = n;
         bottom = n*n+1;
         // Create UF private menber
@@ -57,12 +57,11 @@ public class Percolation {
     }
 
     private void joinNeighbour(int row,int col){
-        boolean change = false;
-        if(joinLeft(row,col)) change=true;
-        if(joinRight(row,col)) change=true;
-        if(joinUp(row,col)) change=true;
-        if(joinDown(row,col)) change=true;
-        if(change)checkbottom(row,col);
+        joinLeft(row,col);
+        joinRight(row,col);
+        joinUp(row,col);
+        joinDown(row,col);
+        checkbottom(row,col);
     }
 
     private boolean joinLeft(int row,int col){
@@ -95,6 +94,7 @@ public class Percolation {
     }
 
     private void checkbottom(int row,int col){
+        if(!isFull(row,col)) return;
         int base = range*(range-1);
         for(int i=1;i<=range;i++){
             if(isFull(range,i)&&!linkBottom[i]){
