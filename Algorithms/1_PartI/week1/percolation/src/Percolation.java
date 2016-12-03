@@ -9,7 +9,7 @@ public class Percolation {
         if(n<1) throw new java.lang.IllegalArgumentException();
         int i,j,k;
         range = n;
-        bottom = n*n+1;
+
         // Create UF private menber
         UF = new WeightedQuickUnionUF(n*n+2);
         // create block array
@@ -39,12 +39,16 @@ public class Percolation {
     // is site (row, col) full?
     public boolean isFull(int row, int col) {
         if(notValid(row,col)) throw new java.lang.IndexOutOfBoundsException();
+        if(!isOpen(row,col)) return false;
         return UF.connected(0,(row-1)*range+col);
     }
 
     // does the system percolate?
     public boolean percolates(){
-        return UF.connected(0,bottom);
+        for(int i=1;i<=range;i++){
+            if(isFull(range,i)) return true;
+        }
+        return false;
     }
 
     private boolean notValid(int row,int col){
@@ -79,7 +83,6 @@ public class Percolation {
 
     private void joinDown(int row,int col){
         int cur = (row-1)*range+col;
-        if(row==range) UF.union(bottom,cur);
         if(notValid(row+1,col) || !isOpen(row+1,col)) return;
         UF.union(cur,cur+range);
     }
@@ -87,7 +90,6 @@ public class Percolation {
     private WeightedQuickUnionUF UF;
     private boolean [] block;
     private int range;
-    private int bottom;
     // test client (optional)
     public static void main(String[] args){
 
