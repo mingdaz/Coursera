@@ -9,14 +9,18 @@ public class Percolation {
         if(n<1) throw new java.lang.IllegalArgumentException();
         int i,j,k;
         range = n;
-
+        bottom = n*n+1;
         // Create UF private menber
         UF = new WeightedQuickUnionUF(n*n+2);
         // create block array
         block = new boolean[n*n];
+        linkBottom = new boolean[n+1];
         //Initial block
         for(i=0;i<n*n;i++){
             block[i]=false;
+        }
+        for(i=0;i<=n;i++){
+            linkBottom[i]=false;
         }
 
     }
@@ -45,10 +49,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates(){
-        for(int i=1;i<=range;i++){
-            if(isFull(range,i)) return true;
-        }
-        return false;
+        return UF.connected(0,bottom);
     }
 
     private boolean notValid(int row,int col){
@@ -56,40 +57,58 @@ public class Percolation {
     }
 
     private void joinNeighbour(int row,int col){
-        joinLeft(row,col);
-        joinRight(row,col);
-        joinUp(row,col);
-        joinDown(row,col);
+        boolean change = false;
+        if(joinLeft(row,col)) change=true;
+        if(joinRight(row,col)) change=true;
+        if(joinUp(row,col)) change=true;
+        if(joinDown(row,col)) change=true;
+        if(change)checkbottom(row,col);
     }
 
-    private void joinLeft(int row,int col){
-        if(notValid(row,col-1) || !isOpen(row,col-1)) return;
+    private boolean joinLeft(int row,int col){
+        if(notValid(row,col-1) || !isOpen(row,col-1)) return false;
         int cur = (row-1)*range+col;
         UF.union(cur,cur-1);
+        return true;
     }
 
-    private void joinRight(int row,int col){
-        if(notValid(row,col+1) || !isOpen(row,col+1)) return;
+    private boolean joinRight(int row,int col){
+        if(notValid(row,col+1) || !isOpen(row,col+1)) return false;
         int cur = (row-1)*range+col;
         UF.union(cur,cur+1);
+        return true;
     }
 
-    private void joinUp(int row,int col){
+    private boolean joinUp(int row,int col){
         int cur = (row-1)*range+col;
         if(row==1) UF.union(0,cur);
-        if(notValid(row-1,col) || !isOpen(row-1,col)) return;
+        if(notValid(row-1,col) || !isOpen(row-1,col)) return false;
         UF.union(cur,cur-range);
+        return true;
     }
 
-    private void joinDown(int row,int col){
+    private boolean joinDown(int row,int col){
         int cur = (row-1)*range+col;
-        if(notValid(row+1,col) || !isOpen(row+1,col)) return;
+        if(notValid(row+1,col) || !isOpen(row+1,col)) return false;
         UF.union(cur,cur+range);
+        return true;
+    }
+
+    private void checkbottom(int row,int col){
+        int base = range*(range-1);
+        for(int i=1;i<=range;i++){
+            if(isFull(range,i)&&!linkBottom[i]){
+                UF.union(bottom,base+i);
+                linkBottom[i]=true;
+            }
+        }
     }
 
     private WeightedQuickUnionUF UF;
     private boolean [] block;
+    private boolean [] linkBottom;
     private int range;
+    private int bottom;
     // test client (optional)
     public static void main(String[] args){
 
