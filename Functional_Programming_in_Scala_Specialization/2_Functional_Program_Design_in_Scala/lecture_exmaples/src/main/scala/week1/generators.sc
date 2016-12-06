@@ -1,4 +1,4 @@
-import week8._
+import week1._
 
 object generators{
   println("Welcome to the Scala worksheet")

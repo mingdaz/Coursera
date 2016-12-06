@@ -1,4 +1,4 @@
-package week8
+package week1
 
 trait Generator[+T]{
   self =>

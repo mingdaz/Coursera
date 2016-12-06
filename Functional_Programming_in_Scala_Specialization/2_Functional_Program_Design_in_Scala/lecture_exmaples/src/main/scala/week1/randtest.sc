@@ -1,4 +1,4 @@
-import week8._
+import week1._
 
 object randtest {
   println("welcome to the scala worksheet")
