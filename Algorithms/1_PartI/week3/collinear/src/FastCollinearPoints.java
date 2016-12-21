@@ -21,10 +21,10 @@ public class FastCollinearPoints {
         Point[] A = points.clone();
         Arrays.sort(A);
         for(i=0;i<length-1;i++){
-            if(points[i].compareTo(points[i+1])==0) throw new java.lang.IllegalArgumentException("");
+            if(A[i].compareTo(A[i+1])==0) throw new java.lang.IllegalArgumentException("");
         }
 
-        for(i=0;i<length-3;i++){
+        for(i=0;i<length;i++){
 
             Arrays.sort(A);
             Arrays.sort(A, points[i].slopeOrder());
@@ -65,7 +65,7 @@ public class FastCollinearPoints {
 
         // read the n points from a file
 //        "/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/input6.txt"
-        In in = new In("/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/input20.txt");
+        In in = new In("/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/rs1423.txt");
         int n = in.readInt();
         Point[] points = new Point[n];
         for (int i = 0; i < n; i++) {
