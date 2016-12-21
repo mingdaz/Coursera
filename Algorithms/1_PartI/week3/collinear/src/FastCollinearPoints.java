@@ -52,11 +52,11 @@ public class FastCollinearPoints {
                 }
             }
 
-            if(length-start_ind>=3) {
+            if(length-1-start_ind>=3) {
                 Arrays.sort(A, start_ind, length-1);
                 if(points[i].compareTo(A[start_ind])<0){
                     _numberOfSegments++;
-                    _segments.add(new LineSegment(points[i],A[length-1]));
+                    _segments.add(new LineSegment(points[i],A[length-2]));
                 }
             }
         }
@@ -75,7 +75,7 @@ public class FastCollinearPoints {
 
         // read the n points from a file
 //        "/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/input6.txt"
-        In in = new In("/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/input8.txt");
+        In in = new In("/Users/mingdzhang/Documents/coursera/Algorithms/1_PartI/week3/collinear/resource/input20.txt");
         int n = in.readInt();
         Point[] points = new Point[n];
         for (int i = 0; i < n; i++) {
