@@ -1,7 +1,5 @@
 import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
-
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdDraw;
 import edu.princeton.cs.algs4.StdOut;
@@ -18,30 +16,23 @@ public class FastCollinearPoints {
         _numberOfSegments = 0;
         _segments = new LinkedList<LineSegment>();
 
-        for(i = 0; i < length; i++) {
-            if (points[i] == null) throw new java.lang.NullPointerException("");
-            for (j = i + 1; j < length; j++)
-                if(points[i].compareTo(points[j])==0) throw new java.lang.IllegalArgumentException("");
+
+        if (points == null) throw new java.lang.NullPointerException("");
+        Point[] A = points.clone();
+        Arrays.sort(A);
+        for(i=0;i<length-1;i++){
+            if(points[i].compareTo(points[i+1])==0) throw new java.lang.IllegalArgumentException("");
         }
 
-        Point[] A = new Point[length-1];
-        for(i=0;i<length;i++){
+        for(i=0;i<length-3;i++){
 
-            for(j=0;j<length;j++){
-                if (j==i) continue;
-                if(j>i)
-                    A[j-1] = points[j];
-                else
-                    A[j] = points[j];
-            }
-
+            Arrays.sort(A);
             Arrays.sort(A, points[i].slopeOrder());
 
-            for(j=1,slope=points[i].slopeTo(A[0]),start_ind=0;j<length-1;j++){
+            for(j=2,slope=points[i].slopeTo(A[1]),start_ind=1;j<length;j++){
                 newslope = points[i].slopeTo(A[j]);
                 if(newslope!=slope){
                     if(j-start_ind>=3) {
-                        Arrays.sort(A, start_ind, j);
                         if(points[i].compareTo(A[start_ind])<0){
                             _numberOfSegments++;
                             _segments.add(new LineSegment(points[i],A[j-1]));
@@ -52,11 +43,10 @@ public class FastCollinearPoints {
                 }
             }
 
-            if(length-1-start_ind>=3) {
-                Arrays.sort(A, start_ind, length-1);
+            if(length-start_ind>=3) {
                 if(points[i].compareTo(A[start_ind])<0){
                     _numberOfSegments++;
-                    _segments.add(new LineSegment(points[i],A[length-2]));
+                    _segments.add(new LineSegment(points[i],A[length-1]));
                 }
             }
         }
