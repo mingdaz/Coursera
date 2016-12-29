@@ -48,17 +48,12 @@ public class Solver {
 
             for(Board b:temp.data.neighbors()){
                 // if neighbor in Game tree do not add it to Queue
-                if(GameTree.inTree(b)) continue;
+                if(temp.parent!=null&&temp.parent.equals(b)) continue;
                 // otherwise create a new node for it
                 Node child = new Node(b);
                 // set parent pointer
                 child.setParent(temp);
                 // add this node to game tree
-                if(temp.children==null){
-                    temp.children = new ArrayList<>();
-                }
-                temp.children.add(child);
-                // add this node to Q
                 Q.insert(child);
             }
 
@@ -71,13 +66,9 @@ public class Solver {
             }
 
             for(Board b:temp.data.neighbors()){
-                if(GameTree.inTree(b)) continue;
+                if(temp.parent!= null&&temp.parent.equals(b)) continue;
                 Node child = new Node(b);
                 child.setParent(temp);
-                if(temp.children==null){
-                    temp.children = new ArrayList<>();
-                }
-                temp.children.add(child);
                 twinQ.insert(child);
             }
 
@@ -116,33 +107,30 @@ public class Solver {
         private Node(Board item){
             data = item;
             parent = null;
-            children = null;
+            priority = data.manhattan();
             move = 0;
         }
         private Board data;
         private Node parent;
-        private List<Node> children;
         private int move;
-        private boolean inTree(Board b){
-            if(data.equals(b)) return true;
-            if(children==null||children.size()==0) return false;
-            for(Node n:children){
-                if(n.inTree(b)) return true;
-            }
-            return false;
-        }
+        private int priority;
+
         private void setParent(Node parent){
             this.parent = parent;
             setMove(parent.getMove()+1);
         }
         private void setMove(int move){
             this.move = move;
+            setPriority();
         }
         private int getMove(){
             return move;
         }
+        private void setPriority(){
+            priority = move + data.manhattan();
+        }
         private int getPriority(){
-            return move + data.manhattan();
+            return priority;
         }
     }
 
