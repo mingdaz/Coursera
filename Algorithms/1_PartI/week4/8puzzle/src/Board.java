@@ -117,7 +117,7 @@ public class Board {
         s.append(_n + "\n");
         for (int i = 0; i < _n; i++) {
             for (int j = 0; j < _n; j++) {
-                s.append(String.format("%2d ", init_board[i][j]));
+                s.append(String.format("%2d ", (int)init_board[i][j]));
             }
             s.append("\n");
         }
