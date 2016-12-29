@@ -6,16 +6,16 @@ import java.util.Stack;
 public class Board {
     public Board(int[][] blocks)  {        // construct a board from an n-by-n array of blocks
         _n = blocks.length;
-        init_board = new int[_n][];
+        init_board = new char[_n][];
         int temp_h = 0;
         int temp_m = 0;
         int temp_i = 0;
         int temp_j = 0;
         int i,j,r,c;
         for(i = 0; i < _n ; i++){
-            init_board[i] = new int[_n];
+            init_board[i] = new char[_n];
             for(j=0;j<_n;j++){
-                init_board[i][j] = blocks[i][j];
+                init_board[i][j] = (char)blocks[i][j];
                 if(blocks[i][j]==0){
                     temp_i = i;
                     temp_j = j;
@@ -48,7 +48,9 @@ public class Board {
     public Board twin() {                // a board that is obtained by exchanging any pair of blocks
         int[][] block = new int[_n][];
         for(int i= 0; i< _n;i++){
-            block[i] = init_board[i].clone();
+            block[i] = new int[_n];
+            for(int j=0; j < _n; j++)
+                block[i][j] = init_board[i][j];
         }
         if(block[0][0]==0) exchange(0,1,1,0,block);
         else if(block[0][1]==0) exchange(0,0,1,0,block);
@@ -82,7 +84,9 @@ public class Board {
         Stack<Board> S = new Stack<>();
         int[][] block = new int[_n][];
         for(int i= 0; i< _n;i++){
-            block[i] = init_board[i].clone();
+            block[i] = new int[_n];
+            for(int j=0; j < _n; j++)
+                block[i][j] = init_board[i][j];
         }
         if(blank_i>0){
             exchange(blank_i,blank_j,blank_i-1,blank_j,block);
@@ -120,7 +124,7 @@ public class Board {
         return s.toString();
     }
 
-    private final int[][] init_board;
+    private final char[][] init_board;
     private final int _n;
     private final int _hamming;
     private final int _manhattan;
