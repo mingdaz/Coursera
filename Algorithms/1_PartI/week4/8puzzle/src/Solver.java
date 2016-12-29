@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Solver {
     public Solver(Board initial){
-        Node GameTree = new Node(initial);
-        Node TwinTree = new Node(initial.twin());
+        Node GameTree = new Node(initial,null,0);
+        Node TwinTree = new Node(initial.twin(),null,0);
 
         MinPQ<Node> Q = new MinPQ<Node>(new Comparator<Node>() {
             @Override
@@ -50,9 +50,7 @@ public class Solver {
                 // if neighbor in Game tree do not add it to Queue
                 if(temp.parent!=null&&temp.parent.equals(b)) continue;
                 // otherwise create a new node for it
-                Node child = new Node(b);
-                // set parent pointer
-                child.setParent(temp);
+                Node child = new Node(b,temp,temp.move+1);
                 // add this node to game tree
                 Q.insert(child);
             }
@@ -67,8 +65,7 @@ public class Solver {
 
             for(Board b:temp.data.neighbors()){
                 if(temp.parent!= null&&temp.parent.equals(b)) continue;
-                Node child = new Node(b);
-                child.setParent(temp);
+                Node child = new Node(b,temp,temp.move+1);
                 twinQ.insert(child);
             }
 
@@ -104,33 +101,16 @@ public class Solver {
 
 
     private class Node {
-        private Node(Board item){
+        private Node(Board item,Node parent,int move){
             data = item;
-            parent = null;
-            priority = data.manhattan();
-            move = 0;
+            this.parent = parent;
+            this.move = move;
         }
         private Board data;
         private Node parent;
         private int move;
-        private int priority;
-
-        private void setParent(Node parent){
-            this.parent = parent;
-            setMove(parent.getMove()+1);
-        }
-        private void setMove(int move){
-            this.move = move;
-            setPriority();
-        }
-        private int getMove(){
-            return move;
-        }
-        private void setPriority(){
-            priority = move + data.manhattan();
-        }
         private int getPriority(){
-            return priority;
+            return move + data.manhattan();
         }
     }
 
