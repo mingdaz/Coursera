@@ -12,8 +12,8 @@ import java.util.List;
  */
 public class Solver {
     public Solver(Board initial){
-        Node GameTree = new Node(initial,null,0);
-        Node TwinTree = new Node(initial.twin(),null,0);
+        Node GameNode = new Node(initial,null,0);
+        Node TwinNode = new Node(initial.twin(),null,0);
 
         MinPQ<Node> Q = new MinPQ<Node>(new Comparator<Node>() {
             @Override
@@ -29,43 +29,38 @@ public class Solver {
             }
         });
 
-        Q.insert(GameTree);
-        twinQ.insert(TwinTree);
+        Q.insert(GameNode);
+        twinQ.insert(TwinNode);
 
         boolean Sol = false;
         boolean twinSol = false;
 
-        Node temp=null;
 
         while( !Sol && !twinSol ){
             // deque first element
-            temp = Q.delMin();
+            GameNode = Q.delMin();
             // if it is already the goal return
-            if(temp.data.isGoal()){
+            if(GameNode.data.isGoal()){
                 Sol = true;
                 break;
             }
-
-            for(Board b:temp.data.neighbors()){
-                // if neighbor in Game tree do not add it to Queue
-                if(temp.parent!=null&&temp.parent.equals(b)) continue;
-                // otherwise create a new node for it
-                Node child = new Node(b,temp,temp.move+1);
-                // add this node to game tree
-                Q.insert(child);
-            }
-
-
-            // do the same for twin Game
-            temp = twinQ.delMin();
-            if(temp.data.isGoal()){
+            TwinNode = twinQ.delMin();
+            if(TwinNode.data.isGoal()){
                 twinSol = true;
                 break;
             }
 
-            for(Board b:temp.data.neighbors()){
-                if(temp.parent!= null&&temp.parent.equals(b)) continue;
-                Node child = new Node(b,temp,temp.move+1);
+            for(Board b:GameNode.data.neighbors()){
+                // if neighbor in Game tree do not add it to Queue
+                if(GameNode.parent!=null&&GameNode.parent.data.equals(b)) continue;
+                // otherwise create a new node for it
+                Node child = new Node(b,GameNode,GameNode.move+1);
+                // add this node to game tree
+                Q.insert(child);
+            }
+            for(Board b:TwinNode.data.neighbors()){
+                if(TwinNode.parent!= null&&TwinNode.parent.data.equals(b)) continue;
+                Node child = new Node(b,TwinNode,TwinNode.move+1);
                 twinQ.insert(child);
             }
 
@@ -73,11 +68,11 @@ public class Solver {
 
         if(Sol){
             _isSolvable = true;
-            _moves = temp.move;
+            _moves = GameNode.move;
             _solution = new Stack<Board>();
-            while(temp!=null){
-                _solution.push(temp.data);
-                temp = temp.parent;
+            while(GameNode!=null){
+                _solution.push(GameNode.data);
+                GameNode = GameNode.parent;
             }
         }
         else{
@@ -105,12 +100,14 @@ public class Solver {
             data = item;
             this.parent = parent;
             this.move = move;
+            this.manhattan = item.manhattan();
         }
         private Board data;
         private Node parent;
         private int move;
+        private int manhattan;
         private int getPriority(){
-            return move + data.manhattan();
+            return move + manhattan;
         }
     }
 
