@@ -63,7 +63,19 @@ public class Board {
     }
 
     public boolean equals(Object y){// does this board equal y?
-        return this.toString().equals(y.toString());
+        if ( y == this )
+            return true;
+        if ( y == null )
+            return false;
+        if ( y.getClass() != this.getClass())
+            return false;
+        Board that = (Board) y;
+        if( this._n != that._n ) return false;
+        for( int i=0; i < _n; i++)
+            for(int j=0; j < _n; j++)
+                if(this.init_board[i][j] != that.init_board[i][j])
+                    return false;
+        return true;
     }
 
     public Iterable<Board> neighbors(){  // all neighboring boards
