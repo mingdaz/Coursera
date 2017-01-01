@@ -120,22 +120,36 @@ public class KdTree {
         return nearest(p, root);
     }
     private Point2D nearest(Point2D p, Node x) {
-        if (x == null || (x.rect != null && x.rect.distanceSquaredTo(p) > dist))
+        if (x == null || (x.rect != null && x.rect.distanceSquaredTo(p) >= dist)) {
             return null;
+        }
         double temp = x.p.distanceSquaredTo(p);
         Point2D res = null;
         if (temp < dist) {
             dist = temp;
             res = x.p;
         }
-        Point2D lb = nearest(p, x.lb);
-        if (lb != null) {
-            res = lb;
+
+        Node firstNode = x.lb;
+        Node secondNode = x.rt;
+
+        if (firstNode != null && secondNode != null) {
+            if (firstNode.rect.distanceTo(p) > secondNode.rect.distanceTo(p)) {
+                firstNode = x.rt;
+                secondNode = x.lb;
+            }
         }
-        Point2D rt = nearest(p, x.rt);
-        if (rt != null) {
-            res = rt;
+
+        Point2D firstNearestPoint = nearest(p, firstNode);
+        if (firstNearestPoint != null) {
+            res = firstNearestPoint;
         }
+
+        Point2D secondNearestPoint = nearest(p, secondNode);
+        if (secondNearestPoint != null) {
+            res = secondNearestPoint;
+        }
+
         return res;
     }
 
