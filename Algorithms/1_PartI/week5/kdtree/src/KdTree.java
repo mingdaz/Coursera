@@ -46,23 +46,29 @@ public class KdTree {
             }
         }
         if (x.lb != null || x.rt != null) {
-            double xmin = x.rect.xmin();
-            double ymin = x.rect.ymin();
-            double xmax = x.rect.xmax();
-            double ymax = x.rect.ymax();
-            if(x.lb != null) {
-                xmin = Double.min(xmin, x.lb.rect.xmin());
-                ymin = Double.min(ymin, x.lb.rect.ymin());
-                xmax = Double.max(xmax, x.lb.rect.xmax());
-                ymax = Double.max(ymax, x.lb.rect.ymax());
+            double xmin = x.xmin();
+            double ymin = x.ymin();
+            double xmax = x.xmax();
+            double ymax = x.ymax();
+            double x0 = xmin;
+            double y0 = ymin;
+            double x1 = xmax;
+            double y1 = ymax;
+            if (x.lb != null) {
+                xmin = Double.min(xmin, x.lb.xmin());
+                ymin = Double.min(ymin, x.lb.ymin());
+                xmax = Double.max(xmax, x.lb.xmax());
+                ymax = Double.max(ymax, x.lb.ymax());
             }
-            if(x.rt != null) {
-                xmin = Double.min(xmin, x.rt.rect.xmin());
-                ymin = Double.min(ymin, x.rt.rect.ymin());
-                xmax = Double.max(xmax, x.rt.rect.xmax());
-                ymax = Double.max(ymax, x.rt.rect.ymax());
+            if (x.rt != null) {
+                xmin = Double.min(xmin, x.rt.xmin());
+                ymin = Double.min(ymin, x.rt.ymin());
+                xmax = Double.max(xmax, x.rt.xmax());
+                ymax = Double.max(ymax, x.rt.ymax());
             }
-            x.rect = new RectHV(xmin, ymin, xmax, ymax);
+            if (x0 != xmin || x1 != xmax || y0 != ymin || y1 != ymax) {
+                x.rect = new RectHV(xmin, ymin, xmax, ymax);
+            }
         }
         return x;
     }
@@ -75,7 +81,7 @@ public class KdTree {
     private boolean contains(Node x, Point2D p, boolean flag) {
         if (x == null) return false;
         if (x.p.equals(p)) return true;
-        if (!x.rect.contains(p)) return false;
+        if (!x.contains(p)) return false;
         if ((flag == XXX && p.x() < x.p.x())
                     || (flag == YYY && p.y() < x.p.y())) {
             return contains(x.lb, p, !flag);
@@ -116,7 +122,7 @@ public class KdTree {
         return S;
     }
     private void range(RectHV rect, Node x, Stack<Point2D> S) {
-        if(x == null || !x.rect.intersects(rect)) return;
+        if(x == null || !x.intersects(rect)) return;
         if (rect.contains(x.p)) {
             S.push(x.p);
         }
@@ -131,7 +137,7 @@ public class KdTree {
         return nearest(p, dist, root);
     }
     private Point2D nearest(Point2D p, Double dist, Node x) {
-        if (x == null || x.rect.distanceSquaredTo(p) > dist) return null;
+        if (x == null || x.distanceSquaredTo(p) > dist) return null;
         double temp = x.p.distanceSquaredTo(p);
         Point2D res = null;
         if (temp < dist) {
@@ -145,7 +151,6 @@ public class KdTree {
         }
         Point2D rt = nearest(p, dist, x.rt);
         if (rt != null) {
-            dist = rt.distanceSquaredTo(p);
             res = rt;
         }
         return res;
@@ -168,7 +173,35 @@ public class KdTree {
             this.p = p;
             this.lb = l;
             this.rt = r;
-            this.rect = new RectHV(p.x(),p.y(),p.x(),p.y());
+            this.rect = null;
+        }
+        public double xmin() {
+            if (rect == null) return p.x();
+            else return rect.xmin();
+        }
+        public double ymin() {
+            if (rect == null) return p.y();
+            else return rect.ymin();
+        }
+        public double xmax() {
+            if (rect == null) return p.x();
+            else return rect.xmax();
+        }
+        public double ymax() {
+            if (rect == null) return p.y();
+            else return rect.ymax();
+        }
+        public boolean intersects(RectHV rect) {
+            if(this.rect == null) return rect.contains(p);
+            else return this.rect.intersects(rect);
+        }
+        public double distanceSquaredTo(Point2D p) {
+            if(rect == null) return this.p.distanceSquaredTo(p);
+            else return rect.distanceSquaredTo(p);
+        }
+        public boolean contains(Point2D p){
+            if(rect == null) return this.p.equals(p);
+            else return rect.contains(p);
         }
     }
 
