@@ -62,10 +62,8 @@ public class PointSET {
         for (Point2D point:pointset) {
             double temp = point.distanceSquaredTo(p);
             if (temp < distance) {
-                if (temp > 0) {
-                    distance = temp;
-                    nearest = point;
-                }
+                distance = temp;
+                nearest = point;
             }
         }
         return nearest;
