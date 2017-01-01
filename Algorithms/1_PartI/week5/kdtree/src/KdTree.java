@@ -29,45 +29,28 @@ public class KdTree {
     // add the point to the set (if it is not already in the set)
     public void insert(Point2D p) {
         if (p == null) throw new NullPointerException("");
-        root = put(root, p, XXX);
+        root = put(root, p, XXX, 0, 1, 0, 1);
     }
 
-    private Node put(Node x, Point2D p, boolean flag) {
+    private Node put(Node x, Point2D p, boolean flag, double xmin, double xmax, double ymin, double ymax) {
         if (x == null) {
             size++;
-            return new Node(p, null, null);
+            return new Node(p, new RectHV(xmin, ymin, xmax, ymax));
         }
         if (!x.p.equals(p)) {
-            if ((flag == XXX && p.x() < x.p.x())
-                    || (flag == YYY && p.y() < x.p.y())) {
-                x.lb = put(x.lb, p, !flag);
+
+            if (flag == XXX) {
+                if (p.x() < x.p.x()) {
+                    x.lb = put(x.lb, p, !flag, xmin, x.p.x(), ymin, ymax);
+                } else {
+                    x.rt = put(x.rt, p, !flag, x.p.x(), xmax, ymin, ymax);
+                }
             } else {
-                x.rt = put(x.rt, p, !flag);
-            }
-        }
-        if (x.lb != null || x.rt != null) {
-            double xmin = x.xmin();
-            double ymin = x.ymin();
-            double xmax = x.xmax();
-            double ymax = x.ymax();
-            double x0 = xmin;
-            double y0 = ymin;
-            double x1 = xmax;
-            double y1 = ymax;
-            if (x.lb != null) {
-                xmin = Double.min(xmin, x.lb.xmin());
-                ymin = Double.min(ymin, x.lb.ymin());
-                xmax = Double.max(xmax, x.lb.xmax());
-                ymax = Double.max(ymax, x.lb.ymax());
-            }
-            if (x.rt != null) {
-                xmin = Double.min(xmin, x.rt.xmin());
-                ymin = Double.min(ymin, x.rt.ymin());
-                xmax = Double.max(xmax, x.rt.xmax());
-                ymax = Double.max(ymax, x.rt.ymax());
-            }
-            if (x0 != xmin || x1 != xmax || y0 != ymin || y1 != ymax) {
-                x.rect = new RectHV(xmin, ymin, xmax, ymax);
+                if (p.y() < x.p.y()) {
+                    x.lb = put(x.lb, p, !flag, xmin, xmax, ymin, x.p.y());
+                } else {
+                    x.rt = put(x.rt, p, !flag, xmin, xmax, x.p.y(), ymax);
+                }
             }
         }
         return x;
@@ -133,23 +116,23 @@ public class KdTree {
     // a nearest neighbor in the set to point p; null if the set is empty
     public Point2D nearest(Point2D p) {
         if (p == null) throw new NullPointerException("");
-        Double dist = Double.MAX_VALUE;
-        return nearest(p, dist, root);
+        dist = Double.MAX_VALUE;
+        return nearest(p, root);
     }
-    private Point2D nearest(Point2D p, Double dist, Node x) {
-        if (x == null || x.distanceSquaredTo(p) > dist) return null;
+    private Point2D nearest(Point2D p, Node x) {
+        if (x == null || (x.rect != null && x.rect.distanceSquaredTo(p) > dist))
+            return null;
         double temp = x.p.distanceSquaredTo(p);
         Point2D res = null;
         if (temp < dist) {
             dist = temp;
             res = x.p;
         }
-        Point2D lb = nearest(p, dist, x.lb);
+        Point2D lb = nearest(p, x.lb);
         if (lb != null) {
-            dist = lb.distanceSquaredTo(p);
             res = lb;
         }
-        Point2D rt = nearest(p, dist, x.rt);
+        Point2D rt = nearest(p, x.rt);
         if (rt != null) {
             res = rt;
         }
@@ -160,6 +143,7 @@ public class KdTree {
 
     private int size;
     private Node root;
+    private double dist;
 
     private static final boolean XXX = true;
     private static final boolean YYY = false;
@@ -169,37 +153,18 @@ public class KdTree {
         private RectHV rect;    // the axis-aligned rectangle corresponding to this node
         private Node lb;        // the left/bottom subtree
         private Node rt;        // the right/top subtree
-        public Node(Point2D p, Node l, Node r) {
+        public Node(Point2D p, RectHV rect) {
             this.p = p;
-            this.lb = l;
-            this.rt = r;
-            this.rect = null;
-        }
-        public double xmin() {
-            if (rect == null) return p.x();
-            else return rect.xmin();
-        }
-        public double ymin() {
-            if (rect == null) return p.y();
-            else return rect.ymin();
-        }
-        public double xmax() {
-            if (rect == null) return p.x();
-            else return rect.xmax();
-        }
-        public double ymax() {
-            if (rect == null) return p.y();
-            else return rect.ymax();
+            this.lb = null;
+            this.rt = null;
+            this.rect = rect;
         }
         public boolean intersects(RectHV rect) {
             if(this.rect == null) return rect.contains(p);
             else return this.rect.intersects(rect);
         }
-        public double distanceSquaredTo(Point2D p) {
-            if(rect == null) return this.p.distanceSquaredTo(p);
-            else return rect.distanceSquaredTo(p);
-        }
-        public boolean contains(Point2D p){
+
+        public boolean contains(Point2D p) {
             if(rect == null) return this.p.equals(p);
             else return rect.contains(p);
         }
