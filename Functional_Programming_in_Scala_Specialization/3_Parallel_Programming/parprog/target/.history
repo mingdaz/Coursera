@@ -1,0 +1,11 @@
+console
+import org.scalameter._
+console
+exit
+console
+EXIT
+exit
+console
+runMain lectures.dataparallelism.Mandelbrot
+cd project
+exit

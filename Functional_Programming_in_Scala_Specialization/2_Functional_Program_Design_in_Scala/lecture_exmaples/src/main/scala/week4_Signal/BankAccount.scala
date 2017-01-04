@@ -4,7 +4,7 @@ package week4_Signal
   * Created by mingdzhang on 12/12/16.
   */
 class BankAccount {
-  val balance = Var(0)
+  val balance = javafx(0)
   def deposit(amount: Int): Unit =
     if(amount>0){
       val b = balance()
