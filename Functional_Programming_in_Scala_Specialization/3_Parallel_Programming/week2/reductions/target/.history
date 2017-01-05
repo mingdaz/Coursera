@@ -1,0 +1,18 @@
+runMain reductions.ParallelCountChangeRunner
+test
+runMain reductions.ParallelParenthesesBalancingRunner
+test
+exit
+test
+runMain reductions.LineOfSightRunner
+submit zhangmd406@gmail.com fwXhdgqXDOzse2Cg
+test
+submit zhangmd406@gmail.com fwXhdgqXDOzse2Cg
+test
+submit zhangmd406@gmail.com fwXhdgqXDOzse2Cg
+test
+runMain reductions.LineOfSightRunner
+submit zhangmd406@gmail.com fwXhdgqXDOzse2Cg
+submit zhangmd406@gmail.com 1NzBvK8XUN34DMPa
+test
+submit zhangmd406@gmail.com 1NzBvK8XUN34DMPa

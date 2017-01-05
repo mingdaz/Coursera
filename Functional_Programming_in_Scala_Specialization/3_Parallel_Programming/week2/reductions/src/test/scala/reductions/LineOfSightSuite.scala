@@ -30,5 +30,14 @@ class LineOfSightSuite extends FunSuite {
     assert(output.toList == List(0f, 1f, 4f, 4f))
   }
 
+  test("downsweep should correctly compute the output for a non-zero starting angle") {
+    val output = new Array[Float](5)
+    val input = Array[Float](0f, 3f, 4f, 33f, 48f)
+    val tree = upsweep(input,1, input.length,1)
+    output(0)=0f
+    downsweep(input,output,8f,tree)
+    assert(output.toList == List(0f, 8f, 8f, 11f, 12f))
+  }
+
 }
 
