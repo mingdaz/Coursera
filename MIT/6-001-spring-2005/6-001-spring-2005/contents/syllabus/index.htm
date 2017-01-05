@@ -1,0 +1,651 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Syllabus | Structure and Interpretation of Computer Programs | Electrical Engineering and Computer Science | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="6-001-structure-and-interpretation-of-computer-programs-spring-2005" name="WT.cg_n">
+<meta content="Syllabus" name="WT.cg_s">
+<meta content="Syllabus contains course objectives and expected outcomes, learning objectives, and general information about lectures, recitations, tutorials, assignments, grades, policy on collaborative work, and programming laboratory." name="Description">
+<meta content="Grimson, Eric" name="Author">
+<meta content="Szolovits, Peter" name="Author">
+<meta content="Darrell, Trevor" name="Author">
+<meta content="programming,Scheme,abstraction,recursion,iteration,object oriented,structure,interpretation,computer programs,languages,procedures,Computer Science,Computation,Theory of Computation" name="keywords">
+<meta content="6.001 Structure and Interpretation of Computer Programs | Syllabus" name="Search_Display">
+<meta content="Computer Science" itemprop="about">
+<meta content="Computation" itemprop="about">
+<meta content="Theory of Computation" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/syllabus">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science">Electrical Engineering and Computer Science</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">Structure and Interpretation of Computer Programs</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Syllabus
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Syllabus
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><h2 class="subhead">Course Meeting Times</h2>
+<p>Lectures: 2 sessions / week, 1 hour / session</p>
+<p>Recitations: 2 sessions / week, 1 hour / session</p>
+<p>Tutorials: 1 session / week, 1 hour / session</p>
+<h2 class="subhead">Course Objectives and Expected Outcomes</h2>
+<h3 class="subsubhead">Learning Objectives</h3>
+<p>Upon completion of 6.001, students will be able to explain and apply the basic methods from programming languages to analyze computational systems, and to generate computational solutions to abstract problems. In particular, students will:</p>
+<ul>
+<li>Be able to explain and apply the major mechanisms for control of complexity in large programming systems: <ul>
+<li>Building Abstractions</li>
+<li>Controlling Interaction through Conventional Interfaces, and</li>
+<li>Designing New Languages</li>
+</ul>
+</li>
+<li>Be able to discuss issues of programming style and programming aesthetics.<br> </li>
+<li>Be able to read and modify a substantial (20 pages) Scheme program, if it is written in exemplary style.<br> </li>
+<li>Be able to design and implement programs in Scheme that demonstrate the concepts covered in the course, specifically: <ul>
+<li>Recursive and Iterative Processes and Procedures</li>
+<li>Higher Order Procedures</li>
+<li>Object Oriented Methods</li>
+<li>Data Abstractions</li>
+<li>Procedures with State</li>
+<li>Dispatch on Type<br> </li>
+</ul>
+</li>
+<li>Be able to understand and modify an interpreter for a Scheme-like language, either at the level of a register machine description or at the level of a higher order language description.</li>
+</ul>
+<h3 class="subsubhead">Measurable Outcomes and Assessment Methods</h3>
+<p>Students completing 6.001 will have demonstrated an ability to:</p>
+<ul>
+<li>Design, implement and test short (1/2 page) recursive programs in Scheme that demonstrate the following concepts (measured by problem sets and quizzes): <ul>
+<li>Building Abstractions: <ul>
+<li>Computational Processes</li>
+<li>Higher-order Procedures</li>
+<li>Compound Data</li>
+<li>Data Abstractions<br> </li>
+</ul>
+</li>
+<li>Controlling Interactions: <ul>
+<li>Generic Operations</li>
+<li>Self-describing Data</li>
+<li>Message Passing</li>
+<li>Streams and Infinite Data Structures</li>
+<li>Object-oriented Programming<br> </li>
+</ul>
+</li>
+<li>Meta-linguistic Abstraction: <ul>
+<li>Interpretation of Programming Languages</li>
+<li>Embedded Languages<br> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Analyze the operation of a Scheme-like interpreter using the substitution and environment models (measured by problem sets and quizzes).<br> </li>
+<li>Design, implement and test at least one substantial (5 pages) program (measured by project).</li>
+</ul>
+<h2 class="subhead">General Information</h2>
+<h3 class="subsubhead">Instructors</h3>
+<p>In Charge:</p>
+<p>Prof. Eric Grimson</p>
+<p>Lecturers:</p>
+<p>Prof. Trevor Darrell<br>Prof. Peter Szolovits</p>
+<h3 class="subsubhead">Scheduled Exams</h3>
+<p>Quiz 1: After lecture 8</p>
+<p>Quiz 2: After recitation 19</p>
+<p>Final Exam: At the end of the term during finals period.</p>
+<h3 class="subsubhead">Subject Meetings</h3>
+<p>6.001 is a large subject, but we have tried to design it so that you can receive a lot of personal attention. In particular, you are expected to participate actively in recitations and tutorials, and the quality of your participation will be a major factor in your grade. It is even more important that you attend and participate in these, because there will be less "in person" interaction in the lectures, as described below.</p>
+<h3 class="subsubhead">Lectures</h3>
+<p>In previous years, the entire class met twice a week for lectures, in "intimate" groups of 250-400. Over the past few years, we have engaged in a major educational experiment in which the lectures are replaced with online lectures, to which students were expected to listen, either in the 6.001 lab, or on their own computer. This term, based on positive feedback from last term's experiment, we are using the following plan.</p>
+<p>Lectures will be given live on Tuesdays and Thursdays. Most of the lectures will also be available online, but may not (and probably will not) be identical to the live lectures. You should treat these online lectures as a kind of audiovisual textbook - they expand on the material presented in lecture, and as opposed to a live lecture, you can listen to them (if you wish) on your schedule and at your pace.</p>
+<p>Lectures are the primary vehicle for introducing and motivating new material, some of which is not in the book. It is essential that you listen to the lectures (whether live - which we prefer - or online), as the recitations will assume you have already heard the material, and will build upon it. The online versions of lectures can be accessed via the 6.001 online tutor system, which will be described in the <a href="../../contents/related-resources/index.htm">related resources</a> section.</p>
+<p>The first time you use the tutor, it will ask you to register to set up a username and password. Once registered, you will find a button "Choose a Lecture" on the main tutor page that will take you to the lecture page. As well, you can use the "Set Preferences" button to set your choice of how you want to view the lectures. We plan to allow viewing of the lectures by Microsoft® PowerPoint®, as a Javascript™, or as an HTML® presentation. If you prefer not to listen to the audio, the latter two methods also will provide text annotations to go with each slide. Details on the use of the tutor are described below.</p>
+<h3 class="subsubhead">Recitations</h3>
+<p>During the first lecture you will be filling out a form, which we will use to assign you to a recitation section. In order to keep sections balanced, we ask you to attend that section. If for some reason you cannot, you <strong>must</strong> contact the course secretary by e-mail, asking to switch sections. She will try to find a new section to accommodate you, but because of the need to keep sections reasonably balanced in size, she may not always be able to do so. Please do not contact her until after the first day of recitations.</p>
+<p>We will also be using the information form to schedule you for a regular weekly tutorial. Details on this assignment will be handled during recitation.</p>
+<p>The class is divided into sections of about 25 students. Each section meets twice each week (on Wednesday and Friday). Recitations expand upon the material currently being introduced, as well as introducing supplementary material that is not directly covered in lecture. They also give you a chance to practice working with the material in an interactive setting. Recitations are the primary source of interaction with the staff, and <strong>your attendance at recitation is essential to good performance</strong> in this class. This is your opportunity to ask questions about the lecture material, to work through examples that reinforce the material, and to explore variations on topics introduced in lecture.</p>
+<h3 class="subsubhead">Tutorials</h3>
+<p>Tutorials will be scheduled in your recitation section during the first week of classes. Tutorials are one-hour small group meetings held once each week, on Mondays or Tuesdays. They provide you an opportunity to obtain individual help, to review homework assignments, and to have your progress in the subject checked. <strong>Attendance at tutorial is essential!</strong> If you are unable to attend a tutorial, you must contact your tutor in advance to make alternate arrangements for that week.</p>
+<h3 class="subsubhead">Course Materials</h3>
+<p><a href="https://mitpress.mit.edu/9780262011532"><img src="https://ocw.mit.edu/images/mp_logo.gif" class="mitpress" alt="Buy at MIT Press"></a> The textbook for the course is: <a href="http://www.amazon.com/exec/obidos/ASIN/0262011530/ref=nosim/mitopencourse-20"><img border="0" align="absMiddle" src="https://ocw.mit.edu/images/a_logo_17.gif" alt="Buy at Amazon"></a> Abelson, Harold, Gerald Jay Sussman, and Julie Sussman. <a href="https://mitpress.mit.edu/9780262011532"><em>Structure and Interpretation of Computer Programs</em></a>. 2nd ed. Cambridge, MA: MIT Press, 1996. ISBN: 9780262011532. The book is also available (without the discount) from the MIT Press bookstore. In addition, an online version is available, and can be found through the link on the <a href="../../contents/readings/index.htm">readings</a> section.</p>
+<p>Your major source for subject materials is the 6.001 web page. On it you will find general announcements, a detailed syllabus and lecture schedule, downloadable implementations of Scheme (the programming language used in 6.001) for use on personal computers, copies of the projects, guidelines for preparing homework, specific information associated with each recitation section, and useful documentation.</p>
+<p>Included in the <a href="../../contents/tools/index.htm">tools</a> section (under "Scheme documentation") is the document: "Don't Panic: An Introductory Guide to the 6.001 Computer System." <strong>You should browse through this handy reference manual before going to the lab</strong>, as it provides useful descriptions of the 6.001 system, Scheme and Edwin (an Emacs-like editor used in 6.001). It also contains useful information about how to use the 6.001 lab.</p>
+<h3 class="subsubhead">Assignments</h3>
+<p>Problem sets are released weekly, onto the 6.001 online tutor system. This tutor is found by clicking the appropriate link in the <a href="../../contents/related-resources/index.htm">related resources</a> section.</p>
+<p>Each problem set will include questions intended to reinforce the material covered by the lectures. This includes two different types of problems. Some are short "finger exercises" intended to directly reinforce material from the each lecture. Others are longer problems intended to allow you to explore ideas introduced in the lecture. These problems are due on the date listed, typically Tuesday at midnight.</p>
+<p>As you will see, the tutor system provides you with an opportunity to check your answers. This will provide you with feedback as to which problems you have understood, and which still need work. Please note that once you press the <strong>"submit"</strong> button, the answers for that question will be locked in. This is equivalent to your turning in your answers to the TA, and thus you cannot change them. Your answers must be submitted by the due date listed on each problem set. Your work will be reviewed by your TA, who will discuss it with you in tutorial.</p>
+<p>In addition to the problem sets, there will be several substantial projects this term, each involving extensive programming that uses the 6.001 computing facility or a personal computer. The programming assignments have been planned on the assumption that you will do the required reading and other preparation before you start programming. It is generally much more efficient to test, debug, and run a program you have planned before beginning than to try to do the planning online. Students who have taken the subject in previous terms report that failing to prepare ahead for programming assignments generally ensures that the assignments will take much longer than necessary. Not only is it more efficient to begin work on each problem set soon after it is distributed, but it is advantageous to complete your computer work early. If you use the 6.001 Lab, you'll find that there is larger demand for the laboratory facilities and for help from the laboratory assistants just before assignments are due.</p>
+<p><strong>Late homework will not be accepted</strong>.</p>
+<p>In case of illness or absence from MIT, make arrangements to complete assignments with your recitation instructor and tutor.</p>
+<h3 class="subsubhead">Grades</h3>
+<p>Your grade in 6.001 will be determined by the following approximate weighting (though the staff reserves the right to consider other factors such as participation in adjusting this formula):</p>
+<div class="maintabletemplate"><table summary="See table caption for summary." class="tablewidth50">
+<caption class="invisible">Grading Table</caption>
+<thead><tr>
+<th scope="col">activities</th>
+<th scope="col">percentages</th>
+</tr></thead>
+<tbody>
+<tr class="row">
+<td>Two Mid-term Quizzes</td>
+<td>25%</td>
+</tr>
+<tr class="alt-row">
+<td>Final Exam</td>
+<td>25%</td>
+</tr>
+<tr class="row">
+<td>Projects</td>
+<td>30%</td>
+</tr>
+<tr class="alt-row">
+<td>Problem Sets</td>
+<td>10%</td>
+</tr>
+<tr class="row">
+<td>Course Participation in Recitations and Tutorials</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table></div>
+<p>However, <strong>you must do the projects to pass the course</strong>; a passing grade based on the other parts may be converted to a failing grade if you do not turn in all the projects, where turning in a project means including a serious attempt to complete each project.</p>
+<ul>
+<li>Homework: You are expected to do all the homework. While performance on exams is an indication of basic competence, performance on homework is your major opportunity to demonstrate outstanding achievement in 6.001. Mediocre homework performance will result in a lower grade, even if performance on exams is good. It is virtually impossible to get an A in 6.001 unless all homework assignments have been turned in. Missing more than a couple of the homework assignments may result in a failing grade for the semester, regardless of performance in exams, tutorials, and recitations. This applies to the weekly problem sets and to the programming projects.<br> </li>
+<li>Participation in Recitations: You are expected to participate actively in recitation and tutorials. Short review problems will often be given in lecture, and these are to be worked on and prepared for the following recitation where you may be called upon to provide your answer to that problem. <strong>Recitation participation is essential and counts for 5% of your grade!</strong><br> </li>
+<li>Participation in Tutorials: You may be asked to explain or to expand upon your written homework solutions in order to demonstrate your mastery of the material. <strong>Tutorial participation is essential and counts for 5% of your grade!</strong> Missing tutorials will have a major impact on grades; students who repeatedly miss tutorial should drop the course.</li>
+</ul>
+<h3 class="subsubhead">6.001 Policy on Collaborative Work</h3>
+<p>Most people learn more effectively when they study in small groups and cooperate in various other ways on homework. This can be particularly true in programming assignments, where working with a partner often helps to avoid careless errors. We are very much in favor of this kind of cooperation, so long as all participants actively involve themselves in all aspects of the work - not just split up the assignment and each do only a fraction.</p>
+<p>We are structuring the work this term into two types: problem sets that you should turn in weekly and projects that you should turn on the listed dates. Please abide by the following guidelines with regard to these different types of work. Problem sets (all the on-line work) are designed to reinforce key concepts. These should be completed by each student individually, though seeking tutoring help from Lab Assistants or other staff is perfectly appropriate. Projects are designed to be larger scale activities, in which group activity in brainstorming and design is often a key component. For these projects, we encourage you to work with one or two other people. When you turn in your project, you must identify with whom you worked. We expect, however, that you are involved in all aspects of the project, that you write and comment your own set of code, and that you <strong>write up your results separately</strong>. When you hand in material with your name on it, we assume that you are certifying that this is your work and that you were involved in all aspects of it. Do not just turn in a copy of a single file; write your own version. This means that you create this file yourself, and not just annotate a copy that you received from someone else. We know that this may sound like replication of work, but an important part of learning the material is making the process an active one, particularly with respect to editing, executing, and debugging software, which you do by ensuring that you create and explain your solution.</p>
+<p>Here is an example scenario of how a good collaboration might work:</p>
+<ul><li>Both (all) of you sit down with pencil and paper and together plan how you're going to solve and test things. You go together to a cluster and sit at adjacent machines. You check after each problem to make sure that the others have working implementations and are all caught up. When one of you has a problem, the others look over your shoulder. For example, your partner has a bug on one part, and you are able to point out where the bug is and how to fix it. On each part of the problem, you write your own code and solution, seeking help from the others when you have difficulties. On the write-up, each of you lists the names of all of your collaborators.</li></ul>
+<p>Here is an example of an inappropriate collaboration:</p>
+<ul><li>You send your friend a copy of your code so far. She works on it to complete the procedure you had not finished, and she fixes a bug in another procedure. You each submit this shared code and solution. Even though you list the names of each other as collaborators, this is inappropriate collaboration because you were not both involved in all aspects of the work - you did not each write your own implementation even if to a common plan, and you shared a common set of code and writeup.</li></ul>
+<p>Not listing the name of a collaborator will be deemed cheating. Similarly, remember that copying another person's work and representing it as one's own work is a serious academic offense and will be treated as such.</p>
+<p>In general, we strongly encourage you to work as a group. It is a very effective way of catching conceptual and other errors, and of refining one's thinking and understanding. Also note that if you are having trouble solving a problem, please take advantage of the Lab Assistants. Part of their responsibility is to answer questions and provide advice and guidance on the course material.</p>
+<p>See the discussion of the use of "bibles" below for additional information on use of materials in completing problem sets and projects.</p>
+<h3 class="subsubhead">The 6.001 Programming Laboratory</h3>
+<p>The laboratory facility for 6.001 contains 40 personal computers (donated to MIT by Intel), laser printers, and network servers. There are sign-up sheets in the lab that you can use to reserve machines, in the event that they become difficult to access.</p>
+<p>The 6.001 laboratory is staffed by undergraduate lab assistants (LA's) who are there to help with the assignments and answer questions about the system. Perhaps more so than the availability of machines, a key benefit to your working in or visiting the lab is the opportunity to get help from the lab assistants. Lab coverage hours will be posted. Please do not attempt to cajole lab assistants into staying beyond these hours - they work long hours as it is, and they need occasional sleep.</p>
+<p>The 6.001 Lab is reserved for the exclusive use of students in 6.001. You'll find it convenient to work here because the Lab Assistants are available to help you, and you can share the warmth and camaraderie of your classmates while you work on problem sets. If you want to use your own computer, the 6.001 staff provides implementations of Scheme for Linux® and Windows® (sorry, no Macs). See the <a href="../../contents/tools/index.htm">tools</a> section for software and installation instructions.</p>
+<p>The problem sets and projects are designed so that they should run on all of these implementations, and you can move your work between them if you find this useful. For example, you might start problem set at home, then spend some time debugging it in the lab where the Lab Assistants can help you, and then finish things up at home.</p>
+<p>6.001 is not officially supported on the MIT server. The implementation of Scheme on the MIT server that runs on Linux® machines should be compatible with the 6.001 implementations, although we do not guarantee that it can run all the problem sets. Other versions of Scheme on the MIT server are likely not to be compatible with 6.001.</p>
+<p>The lab machines are set up as the MIT server machines in the following manner, however. They will automatically save all your work in your MIT server home directory. You can perform most of the MIT server operations on these machines. Please note that this is not a supported MIT server platform, so don't bug I/S employees with problems. Send all bug reports, comments, and questions about the lab setup to the TA.</p>
+<h3 class="subsubhead">Using your own Computer</h3>
+<p>You'll find it convenient to work in the 6.001 lab because the lab assistants are available to help you, and you can share the warmth and camaraderie of your classmates while you work on problem sets. In addition, you can send email if you are in need of technical assistance with the Scheme system.</p>
+<p>If you want to use your own computer, the 6.001 staff supports implementations of Scheme on machines running the MIT server-Linux®, GNU/Linux®, Windows® 95, NT, 2000 or XP. We do not support Macintoshes®. Furthermore, if you use the MIT server, you can only run Scheme from an IBM or a Dell computer. Finally, you cannot run Scheme from a dialup MIT server machine. If you have a PC capable of running Scheme, we suggest that you install it there, since it will be convenient for you to work at home. The 6.001 lab is probably the best place to work if you want help, however, since that is staffed by knowledgeable and friendly Lab Assistants.</p>
+<p>See the <a href="../../contents/tools/index.htm">tools</a> section for software and installation instructions.</p>
+<p>One way you can use the MIT server as a repository for your own working files, and for transferring the files between the 6.001 Lab and your personal machine. See the 6.001 problem set web pages on the MIT server for information on transferring files.</p>
+<p>The 6.001 project code is available in the <a href="../../contents/projects/index.htm">projects</a> section. (Most of the problem sets will not require that you load pre-designed code, but the projects will generally build upon code that we provide for you.)</p>
+<h3 class="subsubhead">Workload</h3>
+<p>6.001 is time-consuming - but the assignments are not intended to require excessive amounts of time. In past subject evaluation surveys, students have typically reported that they spend very close to the expected 15 hours per week on the subject. Spending enormous amounts of time in 6.001 is often the result of simply not asking for help when you need it. If you find yourself spending more time on 6.001 than you think you should, please speak to your recitation instructor. It is also possible to spend an excessive amount of time programming. This is often the result of failing to prepare properly, i.e., not reading the assigned text and exercises, understanding the distributed code, developing plans to solve the questions, etc.</p>
+<p>In addition, please be aware that prolonged computer usage combined with poor posture or improper typing habits can result in conditions such as repetitive strain injury. Remember to take frequent short breaks and to consult the medical department for more information.</p>
+<h3 class="subsubhead">Getting Help</h3>
+<p>The 6.001 staff is always willing to help you. If you feel that you are getting lost, cannot understand the statement of a problem, have a gripe about the way things are being done, or have any other problem that we might be able to help with, please come see us. We hope that you will develop a good relationship with your tutor and recitation instructor as the term progresses. Your recitation instructors will have posted office hours; often these are underutilized, and you should take advantage of these to overcome confusions or deepen your understanding. Do not hesitate to call for help.</p>
+<h3 class="subsubhead">6.001 Bibles</h3>
+<p>Collections of past 6.001 homework assignments and solutions are available in various living groups. A database of 6.001 problem sets and solutions is also available on the MIT server. This material must be used <strong>very</strong> carefully. It is legitimate to use bibles as a source of supplementary problems for additional practice, to try to test and increase your understanding of the material.</p>
+<p>It is <strong>not</strong> legitimate to use bibles a source of code or solutions to any of this year's assignments. Doing so is not only likely to hinder your learning the material, it is intellectually dishonest and a form of cheating. <strong>In recent terms several students made use of bibles in this way, resulting in disciplinary action taken against them. Do not copy from bibles</strong>. Solve the problems on your own, work on the projects in an appropriate fashion consistent with the collaboration policy, or get assistance from the teaching staff.</p>
+	                    
+
+	        			
+	                    
+	                    
+	                    	
+	                    
+
+            		 </main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>

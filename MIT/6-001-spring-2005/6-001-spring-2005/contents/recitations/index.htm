@@ -1,0 +1,840 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no">
+<title>Recitations | Structure and Interpretation of Computer Programs | Electrical Engineering and Computer Science | MIT OpenCourseWare</title>
+<!-- Begin Automatic Metadata Insertion --><meta content="6-001-structure-and-interpretation-of-computer-programs-spring-2005" name="WT.cg_n">
+<meta content="Recitations" name="WT.cg_s">
+<meta content="This course is divided into recitation sections of about 30 to 35 students which meet twice per week. The purpose of the recitations is to expand upon course materials covered in lecture and the  supplementary materials and allow students to practice working with the material in an interactive setting. Recitations are the primary source of interaction with the staff. Below is a sampling of the material covered during recitations." name="Description">
+<meta content="Grimson, Eric" name="Author">
+<meta content="Szolovits, Peter" name="Author">
+<meta content="Darrell, Trevor" name="Author">
+<meta content="programming,Scheme,abstraction,recursion,iteration,object oriented,structure,interpretation,computer programs,languages,procedures,Computer Science,Computation,Theory of Computation" name="keywords">
+<meta content="6.001 Structure and Interpretation of Computer Programs | Recitations" name="Search_Display">
+<meta content="Computer Science" itemprop="about">
+<meta content="Computation" itemprop="about">
+<meta content="Theory of Computation" itemprop="about">
+<!-- End Automatic Metadata Insertion --><link title="default" rel="stylesheet" type="text/css" href="../../common/styles/grid.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/base.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/menu.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/jquery.bubblepopup.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses.css">
+<link title="default" rel="stylesheet" type="text/css" href="../../common/styles/courses_new.css">
+<link href="https://ocw.mit.edu/xml/ocwcc.rdf" type="application/rdf+xml" rel="metadata">
+<link rel="canonical" href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/recitations">
+<link rel="apple-touch-icon" href="../../common/images/apple-touch-icon.png">
+<script type="text/javascript" src="../../common/scripts/jquery.js"></script><script type="text/javascript" src="../../common/scripts/ocw-media-utils-offline.js"></script><script type="text/javascript" src="../../common/scripts/ocw-offline.js"></script><script type="text/javascript" src="../../common/scripts/jquery.bubblepopup.min.js"></script><script type="text/javascript" src="../../common/scripts/expandy.js"></script><script type="text/javascript" src="../../common/scripts/bubble-popup-offline.js"></script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+        
+	
+
+        <header id="top"><div id="grid">
+				
+				
+					
+<div id="portletwrapper-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572" class="portletWrapper kssattr-portlethash-6f63772e746f70706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d686561646572">
+<div class="portletStaticText portlet-static-site-header">
+<!--googleoff: index-->
+<div class="grid_6 alpha" id="banner"><a href="https://ocw.mit.edu/"><img src="../../common/images/ocw_mast.png" class="logo" alt="MIT OpenCourseWare, Massachusetts Institute of Technology"></a></div>
+<div class="grid_6 omega" id="subscribe">
+<aside class="module" aria-label="Connect with OCW"><table class="social"><tbody><tr>
+<td class="socialbutton"><a aria-label="Subscribe to the OCW Newsletter" href="https://ocw.mit.edu/subscribe/index.htm?utm_source=header"><img src="../../common/images/trans.gif" alt="An icon depicting an envelope.">Subscribe to the OCW Newsletter</a></td>
+            <td>
+<a aria-label="Google+" href="https://plus.google.com/104567381989352550847/posts"><img src="../../common/images/icon_gp.png" alt="Click to visit our Google+ page."></a>                   <a aria-label="Pinterest" href="https://www.pinterest.com/mitocw/pins/"><img src="../../common/images/icon_pin.png" alt="Click to visit our Pinterest page."></a>                   <a aria-label="Facebook" href="https://facebook.com/mitocw"><img src="../../common/images/icon_fb.png" alt="Click to visit our Facebook page."></a>                   <a aria-label="Twitter" href="https://twitter.com/mitocw"><img src="../../common/images/icon_tw.png" alt="Click to visit our Twitter feed."></a>
+</td>
+        </tr></tbody></table></aside><nav aria-label="Help Links" class="helplinks"><a aria-label="OCW Site Help" href="https://ocw.mit.edu/help">Help</a><span aria-hidden="true">|</span>     <a href="../../common/jsp/feedback.htm">Contact Us</a>   </nav>
+</div>
+<div class="clear"> </div>
+<!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+<!--googleoff: index-->
+<nav id="mega" class="grid_8 alpha" aria-label="Site"><ul id="menu" role="presentation">
+<li id="menu_home">
+        <a href="https://ocw.mit.edu/" aria-label="Homepage"><img src="../../common/images/top-nav_home.png" class="home_icon" alt="Click for site home page."></a><!-- Begin Home Item -->
+    </li>
+<!-- End Home Item -->
+    <li id="drop_1" aria-label="Find Courses" class="selected">
+      <a href="#" aria-hidden="true">Find Courses</a><!-- Begin 5 columns Item -->
+      <div class="dropdown_5columns-a mega-courses">
+        <div class="col_1a">
+          <div class="row_1a">
+            <nav aria-labelledby="mm-find-courses-by"><span id="mm-find-courses-by" class="nav" aria-hidden="true">Find courses by:</span>
+              <ul class="find_by" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Topic</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-number/">MIT Course Number</a></li>
+                <li><a href="https://ocw.mit.edu/courses/find-by-department/">Department</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+								<li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+            		<li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-megamenu&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+							</ul></nav><nav aria-labelledby="mm-collections"><span id="mm-collections" class="nav" aria-hidden="true">Collections</span>
+              <ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Lectures</a></li>
+                <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+                <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+                <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+                <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+              </ul></nav><nav class="col_1b" aria-labelledby="mm-translated-courses"><span id="mm-translated-courses" class="nav" aria-hidden="true">Translated Courses</span>
+							<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/translated-courses/traditional-chinese" aria-label="Traditional Chinese">繁體字 / Traditional Chinese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/spanish" aria-label="Spanish">Español / Spanish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/portuguese" aria-label="Portuguese">Português / Portuguese</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/persian" aria-label="Persian">فارسی / Persian</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/turkish" aria-label="Turkish">Türkçe / Turkish</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses/korean" aria-label="Korean">(비디오)한국 / Korean</a></li>
+								<li><a href="https://ocw.mit.edu/courses/translated-courses">More...</a></li>
+							</ul></nav>
+</div>
+          <div class="row_1b">
+            <nav aria-labelledby="mm-cross-disciplinary-topic-lists"><span id="mm-cross-disciplinary-topic-lists" class="nav" aria-hidden="true">Cross-Disciplinary Topic Lists</span>
+            	<ul role="presentation">
+<li><a href="https://ocw.mit.edu/courses/energy-courses">Energy</a></li>
+                <li><a href="https://ocw.mit.edu/courses/entrepreneurship">Entrepreneurship</a></li>
+                <li><a href="https://ocw.mit.edu/courses/environment-courses">Environment</a></li>
+              	<li><a href="https://ocw.mit.edu/courses/intro-programming">Introductory Programming</a></li>
+                <li><a href="https://ocw.mit.edu/courses/life-sciences">Life Sciences</a></li>
+                <li><a href="https://ocw.mit.edu/courses/transportation-courses">Transportation</a></li>
+              </ul></nav>
+</div>
+        </div>
+
+      </div>
+    </li>
+    <li id="drop_2">
+        <a href="" aria-hidden="true">About</a>
+        <div class="dropdown_1column-a">
+            <nav class="col_1" aria-label="About"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About MIT OpenCourseWare</a></li>
+                    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+                    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+                    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+                </ul></nav>
+</div>
+    </li>
+    <li id="drop_3">
+        <a href="" aria-hidden="true">Donate</a>
+        <div class="dropdown_1column-a">
+          <nav class="col_1" aria-label="Donate"><ul role="presentation">
+<li><a href="https://ocw.mit.edu/donate/">Make a Donation</a></li>
+              <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+              <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+              <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+              <li><a href="https://ocw.mit.edu/donate/shop-ocw">Shop OCW</a></li>
+              <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+            </ul></nav>
+</div>
+    </li>
+    <li id="drop_4">
+      <a href="" aria-hidden="true">Featured Sites</a>
+      <div class="dropdown_1column-a">
+        <nav class="col_1" aria-labelledby="mm-featured-sites"><span id="mm-featured-sites" class="nav" aria-hidden="true">OCW Initiatives</span>
+          <ul role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+            <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=megamenu&amp;utm_medium=featured-sites">OCW Educator</a></li>
+            <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+            <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+					</ul></nav><nav class="col_1" aria-labelledby="mm-featured-external-links"><span id="mm-featured-external-links" class="nav" aria-hidden="true">Beyond OCW</span>
+					<ul>
+<li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT Plus K12 Videos">MIT+K12 Videos</a></li>
+            <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+						<li><a href="https://outreach.mit.edu" aria-label="External Link: Outreach at MIT">Outreach @ MIT</a></li>
+						<li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+          </ul></nav>
+</div>
+    </li>
+  </ul></nav><div id="search" role="search" class="grid_4 omega">
+  
+    <form aria-label="Advanced Search" method="get" action="../../common/search/AdvancedSearch.htm">
+		  <table class="search"><tbody><tr>
+<td class="black"><input type="text" onblur="fillSearchBox()" onfocus="clearSearchBox()" maxlength="255" value="Search" name="q" class="greytext searchField" id="terms"></td>
+            <td class="black"><input type="image" src="../../common/images/button_search.png" name="btnG" class="sub_button"></td>
+            <td class="text2"><a href="../../common/search/AdvancedSearch.htm">Advanced<br>Search</a></td>
+          </tr></tbody></table>
+</form>
+</div>
+<div class="clear"></div>
+<!--googleon: index-->
+<!-- *end header* -->
+
+				
+				
+			</div>
+<!-- top grid end -->
+		</header><!-- top end --><div id="center">
+         <div id="grid">
+		         <div id="left-section">
+                 <nav aria-label="Breadcrumb" id="breadcrumb"><p>
+
+    <a href="https://ocw.mit.edu/">Home</a>
+    
+        »
+        
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses">Courses</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="https://ocw.mit.edu/courses/electrical-engineering-and-computer-science">Electrical Engineering and Computer Science</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            <a href="../../contents/index.htm">Structure and Interpretation of Computer Programs</a>
+            
+                »
+                
+            
+            
+         
+    
+    
+        
+            
+            
+            Recitations
+         
+    
+</p>
+
+                 </nav><div class="clear"></div>
+                   <div id="section_title">
+           			     <h1 class="title" itemprop="name" property="dct:title">
+        <span class="" id="parent-fieldname-title">
+            Recitations
+        </span>
+    </h1>
+             	     </div>
+             	     <div class="clear"></div>
+             	     <div id="course_wrapper_section">
+           	     	 <nav id="course_nav" aria-label="Course"><script language="javascript" type="text/javascript">
+function toggleMenu(objID) {
+  if (!document.getElementById) return;
+  var ob = document.getElementById(objID);
+  ob.className = (ob.className == 'selected')?'': 'selected';
+}
+function toggleClass(id)
+{
+  var divtoggleClass= document.getElementById(id);
+  divtoggleClass.className = (divtoggleClass.className == 'mO')?'mC': 'mO';
+  return false;
+}
+function changeAlt(id)
+{
+  id.alt = (id.alt == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+  id.title = (id.title == 'Expand Menu')?'Collapse Menu' : 'Expand Menu';
+}
+</script><!--Left Nav Starts --><ul>
+<li class="">
+			   			<a href="../../contents/index.htm">
+		                  Course Home  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/syllabus/index.htm">
+		                  Syllabus  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/calendar/index.htm">
+		                  Calendar  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/readings/index.htm">
+		                  Readings  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/lecture-notes/index.htm">
+		                  Lecture Notes  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/video-lectures/index.htm">
+		                  Video Lectures  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="selected">
+			   			<a href="../../contents/recitations/index.htm">
+		                  Recitations  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/exams/index.htm">
+		                  Exams  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/projects/index.htm">
+		                  Projects  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/tools/index.htm">
+		                  Tools  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    <li class="">
+			   			<a href="../../contents/related-resources/index.htm">
+		                  Related Resources  			                
+	                    </a>
+		        </li>
+		    
+         	
+	
+	
+	    	
+	    	    
+		    
+         	
+	<!--second tal block close-->  
+	
+</ul>
+<!--Left Nav Ends --></nav><main id="course_inner_section" aria-labelledby="section_title"><p>This course is divided into recitation sections of about 30 to 35 students which meet twice per week. The purpose of the recitations is to expand upon course materials covered in lecture and allow students to practice working with the material in an interactive setting. Below is material written by one of the recitation instructors for students enrolled in the course.</p>
+<h2 class="subhead">6.001 Recitation Notes, Spring 2005, by Recitation Instructor Peter Szolovits</h2>
+<p>This Web page contains notes and program fragments that I have used in presenting some of the 6.001 recitations this term. A number of students have asked for these to be available, therefore I have collected them here.</p>
+<ul>
+<li>Higher-order Procedures</li>
+<li>"Alternative" Methods of Computing Square-root</li>
+<li>Printing Pairs vs. Printing Lists</li>
+<li>Reader, Evaluator and Printer</li>
+<li>Maintaining a Priority Queue for Simulation</li>
+</ul>
+<h2 class="subhead">Higher-order Procedures</h2>
+<p>In the recitation following the introduction of higher-order procedures, I argued that there is a necessary sense of design elegance for building complex systems that remain comprehensible. One aspect of that elegance is related to regularity and the ability to compose operations. For example, we looked at two alternative implementations of how one might take a derivative of an arbitrary function of one variable:</p>
+<p>The typical approach in ordinary programming languages is to define a procedure, say ddx, that takes as inputs the procedure that computes the function of one argument and the value, x, at which the derivative is to be evaluated.<br><br>
+;; This is a small number that happens to have an exact binary fraction representation<br>
+(define dx 0.00390625)</p>
+<p>(define (ddx f x)<br>
+  (/ (- (f (+ x dx))<br>
+        (f x))<br>
+     dx))<br><br>
+We then invoke our procedure as follows:<br><br>
+(ddx square 3)<br>
+;Value: 6.00390625<br><br>
+However, this procedure is, technically speaking, ugly! Its signature is<br><br>
+((number ==&gt; number), number) ==&gt; number<br><br>
+and it appears to confound two separate issues: (1) how to find a numerical approximation to the derivative of a function, and (2) how to evaluate that derivate at a particular value of x.<br><br>
+Instead, we should prefer the following:<br><br>
+(define (deriv f)<br>
+  (lambda (x)<br>
+    (/ (- (f (+ x dx))<br>
+          (f x))<br>
+       dx)))<br><br>
+We use it as follows:<br><br>
+((deriv square) 3)<br>
+;Value: 6.00390625<br><br>
+This deriv procedure's signature is<br><br>
+(number ==&gt; number) ==&gt; (number ==&gt; number)<br><br>
+which is much more regular (it transforms an input of a certain type into an output of the same type), and then allows us to define ddx in terms of deriv, if we choose, as<br><br>
+(define (ddx f x)<br>
+  ((deriv f) x))<br><br>
+Elegance has its rewards, because if we now become interested in taking the second derivative of a function, we can simply compose our existing ability to take the first derivative, twice. Thus, for example:<br><br>
+((deriv (deriv square)) 3)<br>
+;Value: 2.<br><br>
+Further, we might try<br><br>
+((deriv (deriv (deriv square))) 3)<br>
+;Value: 0.<br><br>
+which is great. In fact, if we define<br><br>
+(define (compose f g)<br>
+  (lambda (x)<br>
+    (f (g x))))<br><br>
+then note that we may define<br><br>
+(define 2nd-deriv (compose deriv deriv))<br><br>
+and indeed<br><br>
+((2nd-deriv square) 8)<br>
+;Value: 2.<br><br>
+Note that we first saw compose as a procedure that composes two procedures each of which has signature<br><br>
+number ==&gt; number<br><br>
+leading to examples of its use such as<br><br>
+((compose square sqrt) 7)<br>
+;Value: 7.000000000000001<br><br>
+In the present case, we are using it on two procedures each of which has signature<br><br>
+(number ==&gt; number) ==&gt; (number ==&gt; number)<br><br>
+The fact that we are able to do this without changing the definition of compose indicates that we have successfully captured some essence of the mathematical notion of composition.</p>
+<h2 class="subhead">"Alternative" Methods of Computing Square-root</h2>
+<p>In lectures and the text, there are (at least) three fundamentally different presentations of how one might build a computer algorithm for computing the square root of a non-negative real number: (1) due to Heron of Alexandria, successively approximating y as the square root of x by averaging y and x/y, (2) a method that finds the fixed point of the transformation y ==&gt; x/y, and (3) Newton's method, that finds a zero of the function y2 - x. Here are some implementations of each of these algorithms, and examples of their use. Note that each implementation traces successive values of the approximation, to let us see what is being computed.<br><br>
+(define (average x y)<br>
+  (/ (+ x y) 2))</p>
+<p>(define tolerance 0.00001)</p>
+<p>;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+;;;<br>
+;;; Heron of Alexandria's sqrt Method<br>
+;;;<br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</p>
+<p>(define (sqrt-heron x)</p>
+<p>  (define (sqrt-iter guess x)<br>
+    (display guess) (newline)<br>
+    (if (good-enuf? guess x)<br>
+ (improve guess x)  ;original returned guess; less accurate<br>
+ (sqrt-iter (improve guess x)<br>
+     x)))<br>
+  (define (improve guess x)<br>
+    (average guess (/ x guess)))</p>
+<p>  (define (good-enuf? guess x)<br>
+    (&lt; (abs (- (square guess) x))<br>
+       tolerance))</p>
+<p>  (sqrt-iter 1.0 x))</p>
+<p><br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+;;;<br>
+;;; Fixed point method for sqrt<br>
+;;;<br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</p>
+<p>(define (average-damp f)<br>
+  (lambda (x)<br>
+    (average x (f x))))</p>
+<p>(define (fixed-point f iguess)</p>
+<p>  (define (close-enough? v1 v2)<br>
+    (&lt; (abs (- v1 v2)) tolerance))</p>
+<p>  (define (try guess)<br>
+    (display guess) (newline)<br>
+    (let ((next (f guess)))<br>
+      (if (close-enough? guess next)<br>
+   next<br>
+   (try next))))</p>
+<p>  (try iguess))</p>
+<p>(define (fsqrt x)<br>
+  (fixed-point<br>
+   (average-damp<br>
+    (lambda (y) (/ x y)))<br>
+   1.0))</p>
+<p><br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+;;;<br>
+;;; Newton's Method<br>
+;;;<br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</p>
+<p>(define dx tolerance)</p>
+<p>(define (deriv f)<br>
+  (lambda (x)<br>
+    (/ (- (f (+ x dx))<br>
+   (f x))<br>
+       dx)))</p>
+<p>(define (newton-transform g)<br>
+  (lambda (x)<br>
+    (- x (/ (g x)<br>
+     ((deriv g) x)))))</p>
+<p>(define (newtons-method g guess)<br>
+  (fixed-point (newton-transform g) guess))</p>
+<p>(define (nsqrt x)<br>
+  (newtons-method<br>
+   (lambda (y) (- (square y) x))<br>
+   1.0))</p>
+<p><br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;<br>
+;;;<br>
+;;; Generalization (just for fun)<br>
+;;;<br>
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;</p>
+<p>(define (fixed-point-of-transform g transform guess)<br>
+  (fixed-point (transform g) guess))</p>
+<p>(define (fsqrt1 x)<br>
+  (fixed-point-of-transform<br>
+   (lambda (y) (/ x y))<br>
+   average-damp<br>
+   1.0))</p>
+<p>(define (nsqrt1 x)<br>
+  (fixed-point-of-transform<br>
+   (lambda (y) (- (square y) x))<br>
+   newton-transform<br>
+   1.0))<br><br>
+Using these definitions, we can compute (sqrt 2) in the three different ways:<br><br>
+(sqrt-heron 2)<br>
+1.<br>
+1.5<br>
+1.4166666666666665<br>
+1.4142156862745097<br>
+;Value: 1.4142135623746899</p>
+<p>(fsqrt 2)<br>
+1.<br>
+1.5<br>
+1.4166666666666665<br>
+1.4142156862745097<br>
+;Value: 1.4142135623746899</p>
+<p>(nsqrt 2)<br>
+1.<br>
+1.4999975000090175<br>
+1.416666805550865<br>
+1.4142156951657834<br>
+;Value: 1.4142135623822438<br><br>
+Note that the first two methods are really doing precisely the same calculation. The third differs only in that in Newton's method we are really just approximating the derivative, rather than computing it directly. Even so, the third method also goes through the same number of steps of calculation and intermediate values to arrive at an answer that differs from the first two only in the 12th significant digit! Thus, in essence, each of these three methods is actually doing exactly the same thing.<br><br>
+Note also that each method converges quickly even for much larger arguments:<br><br>
+(fsqrt 2000)<br>
+1.<br>
+1000.5<br>
+501.24950024987504<br>
+252.6197645828103<br>
+130.26840074561815<br>
+72.81065908632895<br>
+50.13958236477863<br>
+45.014113668459046<br>
+44.72231152890744<br>
+44.721359560127915<br>
+;Value: 44.721359549995796</p>
+<p>(nsqrt 2000)<br>
+1.<br>
+1000.49500282873<br>
+501.2470075904563<br>
+252.61852978302747<br>
+130.26780512293146<br>
+72.81039859738789<br>
+50.13950281939877<br>
+45.01410604971975<br>
+44.722311512074825<br>
+44.721359560234205<br>
+;Value: 44.721359549995796</p>
+<h2 class="subhead">Printing Pairs vs Printing Lists</h2>
+<p>Scheme generally prints a pair in the following form: (&lt;car&gt; . &lt;cdr&gt;)<br><br>
+Therefore, assuming we have the function write that can print atoms and character strings, we may write a procedure for printing structures made of pairs as follows:<br><br>
+(define (my-write e)<br>
+  (cond ((pair? e)<br>
+         (display "(")<br>
+         (my-write (car e))<br>
+         (display " . ")<br>
+         (my-write (cdr e))<br>
+         (display ")"))<br>
+        (else (write e))))<br><br>
+Then, we get the following:<br><br>
+(my-write (cons (cons 1 2)<br>
+                (cons 3 (cons 4 5))))<br>
+((1 . 2) . (3 . (4 . 5)))<br><br>
+Note, however, that this method of printing makes lists look rather more complex than we ordinarily like to think of a list of objects:<br><br>
+(my-write (list 1 2 3 4))<br>
+(1 . (2 . (3 . (4 . #f))))<br><br>
+To get around this, Scheme in fact uses a printer more like the following, which is haired up to deal better with lists:<br><br>
+(define (your-write e)<br>
+  (define (list-write e)<br>
+    (cond ((pair? e)<br>
+           (your-write (car e))<br>
+           (display " ")<br>
+           (list-write (cdr e)))<br>
+          ((null? e))<br>
+          (else (display ". ")<br>
+                (write e))))<br>
+  (cond ((pair? e) (display "(")<br>
+                   (list-write e)<br>
+                   (display ")"))<br>
+        (else (write e))))<br><br>
+Now, as desired, we get<br><br>
+(your-write<br>
+     (cons 1 (cons 2 (cons 3 '()))))<br>
+(1 2 3 )</p>
+<p>(your-write<br>
+     (cons (cons 1 2) (cons 3 (cons 4 5))))<br>
+((1 . 2) 3 4 . 5)<br><br>
+In fact, with the exception of an extra space before the end of a list, this is just like what Scheme's built-in printer does. You can verify that this algorithm is equivalent to the "hack" I suggested in section: print using the first method (fully dotted and parenthesized), and then erase all occurrences of ". (" and the corresponding ")". (This also assumes that the empty list is printed as () rather than as #f.)</p>
+<h2 class="subhead">Reader, Evaluator, Printer</h2>
+<p>You have seen before the Scheme's interaction with the user involves three interlinked functionalities:</p>
+<ul>
+<li>The reader turns the user's typed input into the proper internal representations of numbers, character strings, symbols, Boolean value, lists, etc.</li>
+<li>The evaluator applies Scheme's rules of evaluation to find the value of an expression that has been entered by the user.</li>
+<li>The printer turns the internal representation back into a meaningful form for the user.</li>
+</ul>
+<p>For a simple example, suppose the user types the characters "3.14159265358979323846" into Scheme's top-level REPL (read./eval/print loop). The reader recognizes that this sequence of characters is a valid syntactic representation of a number, and constructs the floating point internal representation of (an approximation) of the numbers the user meant to type. Scheme's evaluator then applies it normal rules of evaluation; it discovers that the expression is a number, which is self-evaluating, and therefore returns the number as its value. The printer then converts this internal representation of the number to a form that is presented to the user. Here is a transcript of this interaction:<br><br>
+3.14159265358979323846<br>
+;Value: 3.141592653589793<br><br>
+Note that what got typed back is not exactly what got typed in. This is a result of limitations in the internal representations used by Scheme. In this example, the IEEE floating point standard used by Scheme does not support as many significant digits of precision as the user typed in.<br><br>
+The reader understands the purely syntactic rules of Scheme, and can determine whether what the user typed is meant to be a number (as in the above example) or a Boolean value (#t or #f) or a character string ("I am inside double-quote marks".) or a symbol (e.g., + or square). It also knows the syntactic rule for quotation:<br><br>
+'&lt;anything&gt;<br><br>
+is read as<br><br>
+(quote &lt;anything&gt;)<br><br>
+and it understands the syntax of list structure and dotted-pair notation. Thus,<br><br>
+(+ 2 3)<br><br>
+is read as a list of three elements, the symbol +, the number 2 and the number 3. Note, however, that the reader knows nothing about the rules of evaluation, and thus cares not at all whether the user has typed (quote 18) or (sqrt 18).<br><br>
+The reader's rules are generally intuitive, and never ambiguous. However, you might find something like the following odd:<br><br>
+3.1.3<br>
+;Unbound variable: 3.1.3<br><br>
+This is because a number cannot have two periods, so the reader reads "3.1.3" as a symbol. The evaluator then finds that there is no value associated with this symbol.</p>
+<h2 class="subhead">Quotation, Lists and the Reader</h2>
+<p>We have recently introduced quotation as a means of allowing our programs to work with symbols and also as a convenient way to type lists into scheme. For example, we can try<br><br>
+(define colors '(red orange yellow green blue indigo violet))<br>
+(member? 'orange colors)<br><br>
+For the first line, the reader produces the expression<br><br>
+(define colors (quote (red orange yellow green blue indigo violet)))<br><br>
+The evaluator then applies the rule of evaluation for the special form define, which says to evaluate the second argument to define and then associate the symbol that is the first argument with the resulting value. The value of (quote (red orange yellow green blue indigo violet)) is just (red orange yellow green blue indigo violet) by the rule for evaluating the special form quote.<br><br>
+From these examples, you can actually tell a profound fact about the implementation of Scheme: the expressions being evaluated by the evaluator are represented internally as list structure. This is why typing in a list that is quoted leads to a value that is indeed a list. And you have the reader to thank for having created it when it recognized that (roughly), stuff surrounded by parentheses is meant to represent a list.</p>
+<h2 class="subhead">Maintaining a Priority Queue for Simulation</h2>
+<p>Having introduced mutation of data structures, we looked in recitation at how to implement a useful data structure to keeping a set of elements ordered by some "priority" rank. This is used, for example, in building (discrete event) simulators, where one needs to keep track of tasks that must be done in the future, and the times at which they need to be started. Here is the priority queue representation and implementation we developed:<br><br>
+(define make-task cons)<br>
+(define task-time car)<br>
+(define task-proc cdr)</p>
+<p>(define (make-task-list)<br>
+  ;; [] -&gt; task-list<br>
+  (list 'task-list)<br>
+  )</p>
+<p>(define (add-task! tl task)<br>
+  ;; [task-list, task] -&gt; ???<br>
+  (define (helper trail l)<br>
+    (cond ((null? l) (set-cdr! trail (list task)))<br>
+   ((&lt; (task-time task) (task-time (car l)))<br>
+    (set-cdr! trail (cons task l)))<br>
+   (else (helper l (cdr l)))))<br>
+  (helper tl (cdr tl))<br>
+  tl<br>
+  )</p>
+<p>(define (task-list? obj)<br>
+  (and (pair? obj)<br>
+       (eq? (car obj) 'task-list)))</p>
+<p>(define (empty-task-list? tl)<br>
+  ;; task-list -&gt; boolean<br>
+  (and (task-list? tl)<br>
+       (null? (cdr tl)))<br>
+  )</p>
+<p>(define (pop-task! tl)<br>
+  ;; task-list -&gt; task<br>
+  (and (task-list? tl)<br>
+       (not (empty-task-list? tl))<br>
+       (let ((ans (cadr tl)))<br>
+  (set-cdr! tl (cddr tl))<br>
+  ans)))<br><br>
+A typical task is represented as a procedure of no arguments. The idea is that it will be called when it is time to perform the task. In a simulator, usually tasks will, as part of their execution, add other tasks to the task-list, to be done at later times.<br><br>
+(define (say msg)<br>
+  (lambda ()<br>
+    (newline)<br>
+    (display msg)))</p>
+<p>With the above, we can implement a simple simulation system that will "ping" every five ticks of the clock and "pong" every seven ticks. Note that our simulator, run, does not actually have a ticking clock, but merely executes the next available task from the task list. The clock is, therefore, kept implicitly by the (future) times for which each task queues up other tasks.<br><br>
+(define (run tl)<br>
+  (cond ((empty-task-list? tl)<br>
+  'done)<br>
+ (else<br>
+  (let ((task (pop-task! tl)))<br>
+    ((task-proc task)))<br>
+  (run tl))))</p>
+<p>(define the-task-list (make-task-list))</p>
+<p>(define (ping initial-time msg)<br>
+  (add-task!<br>
+   the-task-list<br>
+   (make-task initial-time<br>
+       (lambda ()<br>
+  (newline)<br>
+  (display msg)<br>
+  (ping (+ 5 initial-time)<br>
+        (list 'ping (+ 5 initial-time)))))))</p>
+<p>(define (pong initial-time msg)<br>
+  (add-task!<br>
+   the-task-list<br>
+   (make-task initial-time<br>
+       (lambda ()<br>
+  (newline)<br>
+  (display msg)<br>
+  (pong (+ 7 initial-time)<br>
+        (list 'pong (+ 7 initial-time)))))))</p>
+<p>(ping 0 "PING Starting up")<br>
+(pong 0 "PONG Starting up")</p>
+<p>(run the-task-list)</p>
+<p>PING Starting up<br>
+PONG Starting up<br>
+(ping 5)<br>
+(pong 7)<br>
+(ping 10)<br>
+(pong 14)<br>
+(ping 15)<br>
+(ping 20)<br>
+(pong 21)<br>
+(ping 25)<br>
+(pong 28)<br>
+(ping 30)<br>
+(pong 35)<br>
+(ping 35)<br>
+(ping 40)<br>
+(pong 42)<br>
+(ping 45)<br>
+(pong 49)<br>
+(ping 50)<br>
+(ping 55)<br>
+(pong 56)<br>
+...<br></p>
+<br></main><!--Course_inner_section tag close --><div class="clear"></div>
+ 				 </div>
+<!--Course_wrapper tag close -->             
+ 			 </div>
+<!--left tag close -->
+ 			
+         </div>
+<!--grid tag close -->
+      </div>
+		
+		<footer id="bottom"><div id="grid">
+				
+<div id="portletwrapper-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572" class="portletWrapper kssattr-portlethash-6f63772e626f74746f6d706f72746c65746d616e616765720a636f6e746578740a2f506c6f6e650a736974652d666f6f746572">
+<div class="portletStaticText portlet-static-site-footer">
+<!--googleoff: index-->
+<div id="footer">
+<nav aria-label="Footer"><nav id="foot-c1" class="grid_2 alpha" aria-labelledby="f-find-courses"><span class="footer" id="f-find-courses" aria-hidden="true">Find Courses</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/courses/find-by-topic/">Find by Topic</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-number/">Find by Course Number</a></li>
+    <li><a href="https://ocw.mit.edu/courses/find-by-department/">Find by Department</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=instructional&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=approaches">Instructional Approach</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?view=teaching&amp;utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=find-courses&amp;utm_content=materials">Teaching Materials</a></li>
+    <li><a href="https://ocw.mit.edu/courses/audio-video-courses/">Audio/Video Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/subtitled/">Courses with Subtitles</a></li>
+    <li><a href="https://ocw.mit.edu/courses/online-textbooks/">Online Textbooks</a></li>
+    <li><a href="https://ocw.mit.edu/courses/new-courses/">New Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/most-visited-courses/">Most Visited Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/ocw-scholar/">OCW Scholar Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/this-course-at-mit/">This Course at MIT</a></li>
+    <li><a href="https://ocw.mit.edu/resources/">Supplemental Resources</a></li>
+    <li><a href="https://ocw.mit.edu/courses/translated-courses/">Translated Courses</a></li>
+    <li><a href="https://ocw.mit.edu/courses/?utm_source=ocw-footer&amp;utm_medium=link&amp;utm_campaign=mclstudy">View All Courses</a></li>
+</ul></nav><div id="foot-c2" class="grid_2">
+<nav aria-labelledby="f-about"><span id="f-about" class="footer" aria-hidden="true">About</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/about/">About OpenCourseWare</a></li>
+    <li><a href="https://ocw.mit.edu/about/site-statistics/">Site Statistics</a></li>
+    <li><a href="https://ocw.mit.edu/about/ocw-stories/">OCW Stories</a></li>
+    <li><a href="https://ocw.mit.edu/about/newsletter/">News</a></li>
+    <li><a href="https://ocw.mit.edu/about/media-coverage/press-releases/">Press Releases</a></li>
+</ul></nav><!--about--><nav aria-labelledby="f-tools"><span id="f-tools" class="footer" aria-hidden="true">Tools</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/help/">Help &amp; FAQs</a></li>
+    <li><a href="../../common/jsp/feedback.htm">Contact Us</a></li>
+    <li><a href="../../common/search/AdvancedSearch.htm">Advanced Search</a></li>
+    <li><a href="https://ocw.mit.edu/help/site-map/">Site Map</a></li>
+    <li><a href="../../common/terms/index.htm">Privacy &amp; Terms of Use</a></li>
+    <li><a href="https://ocw.mit.edu/help/rss/">RSS Feeds</a></li>
+</ul></nav><!--tools-->
+</div>
+<nav class="grid_2" id="foot-c3" aria-labelledby="f-donate"><span id="f-donate" class="footer" aria-hidden="true">Donate</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/donate">Make a Donation</a></li>
+    <li><a href="https://ocw.mit.edu/donate/why-donate/">Why Donate?</a></li>
+    <li><a href="https://ocw.mit.edu/donate/our-supporters/">Our Supporters</a></li>
+    <li><a href="https://ocw.mit.edu/donate/other-ways-to-contribute/">Other Ways to Contribute</a></li>
+    <li><a href="https://ocw.mit.edu/donate/shop-ocw/">Shop OCW</a></li>
+    <li><a href="https://ocw.mit.edu/support/">Become a Corporate Sponsor</a></li>
+</ul></nav><div class="grid_2" id="foot-c4"><nav aria-labelledby="f-featured-sites"><span id="f-featured-sites" class="footer" aria-hidden="true">Featured Sites</span>
+<ul class="foot-bullet" role="presentation">
+<li><a href="https://ocw.mit.edu/high-school/">Highlights for High School</a></li>
+    <li><a href="https://ocw.mit.edu/educator/?utm_campaign=Educator&amp;utm_source=footer&amp;utm_medium=featured-sites">OCW Educator</a></li>
+    <li><a href="https://ocw.mit.edu/courses/crosslinks/">MIT Crosslinks and OCW</a></li>
+    <li><a href="https://ocw.mit.edu/courses/mitx-related-courseware/">MITx and Related OCW Courses</a></li>
+    <li><a href="http://k12videos.mit.edu" aria-label="External Link: MIT+K12 Videos">MIT+K12 Videos</a></li>
+    <li><a href="https://teachingexcellence.mit.edu/" aria-label="External Link: Teaching Excellence at MIT">Teaching Excellence at MIT</a></li>
+    <li><a href="https://outreach.mit.edu/" aria-label="External Link: Outreach at MIT">Outreach@MIT</a></li>
+    <li><a href="http://www.oeconsortium.org/" aria-label="External Link: Open Education Consortium">Open Education Consortium</a></li>
+</ul></nav></div>
+</nav><!--Footer Nav>--><aside id="foot-c5" class="grid_4 omega" aria-labelledby="f-our-corporate-supporters" style="min-height: 289px;"><span id="f-our-corporate-supporters" class="footer" aria-hidden="true">Our Corporate Supporters</span>           <!-- HOME_CORP_LOGO_1 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-0"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-0'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_2 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-1"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-1'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_3 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-2"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-2'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_4 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-3"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-3'); });
+            </script></div>
+<!-- HOME_CORP_LOGO_5 -->
+<div class="sponsors_google_ads_even" id="div-gpt-ad-1388181177156-4"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-4'); });
+              </script></div>
+<!-- HOME_CORP_LOGO_6 -->
+<div class="sponsors_google_ads_odd" id="div-gpt-ad-1388181177156-5"><script type="text/javascript">
+              googletag.cmd.push(function() { googletag.display('div-gpt-ad-1388181177156-5'); });
+              </script></div>
+</aside><aside class="grid_12 alpha omega" aria-label="OCW 15th Anniversary" style="border-top: thin solid #d5c9ba; padding-top: 24px; margin-bottom: 10px; text-align: center;"><p style="font-family: TitilliumText22LRegular,Verdana; text-align: center; font-size: 1.1em;">Support for <span style="letter-spacing: 0.5px; font-weight: bold;"><span style="text-transform: uppercase;">MIT OpenCourseWare's</span> 15th anniversary</span> is provided by <a href="http://www.sapientnitro.com/en-us.html#home"><img style="width: 145px; height: 35px; vertical-align: middle; margin-left: 7px;" alt="SapientNitro" src="../../common/images/logo_sapient.png"></a></p>
+</aside><aside class="grid_12 alpha omega" aria-labelledby="f-about-ocw" itemtype="http://schema.org/CollegeOrUniversity" itemscope="" itemprop="publisher" style="border-top: thin solid #d5c9ba; padding-top: 10px; margin-bottom: 10px;"><span id="f-about-ocw" class="footer" aria-hidden="true">             About <span itemprop="name">MIT OpenCourseWare</span></span>
+<p itemprop="description" style="color: #999; font-size: 1em; line-height: 1.5em; margin-top: 10px;">OCW is a free and open publication of material from thousands of MIT courses, covering the entire MIT curriculum. <a href="https://ocw.mit.edu/about/">Learn more »</a></p>
+<div id="foot-copy" class="grid_12 alpha omega" style="border-top: none;">
+<a href="http://web.mit.edu">               <img style="width: 195; height: 44;" alt="Massachusetts Institute of Technology" src="../../common/images/logo_mit.png"></a>             <a href="http://odl.mit.edu">               <img style="width: 289; height: 54; vertical-align: top;" alt="MIT Office of Digital Learning" src="https://ocw.mit.edu/images/logo_odl.png"></a>             <a href="http://www.oeconsortium.org/">               <img style="width: 219px; height: 59px; vertical-align: top;" alt="Open Education Consortium" src="https://ocw.mit.edu/images/logo_oec.png"></a>             <a itemprop="useRightsUrl" rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">               <img style="width: 126px; height: 44px; margin-right: 0; margin-left: 13px;" alt="Creative Commons" src="../../common/images/cc_by-nc-sa.png"></a>
+</div>
+<div id="f-legal" class="grid_12 alpha omega" style="border-top: none;">
+<p class="copyright">© 2001–2015<br>
+Massachusetts Institute of Technology</p>
+<p style="font-size: 0.9em; margin-bottom: 15px;">Your use of the MIT OpenCourseWare site and materials is subject to our <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons License</a> and other <a rel="cc:morePermissions" href="../../common/terms/index.htm">terms of use</a>.</p>
+</div>
+</aside>
+</div>
+<!--footer-->   <!--googleon: index-->
+</div>
+
+</div>
+
+
+
+
+
+                
+			</div> <!-- bottom grid end -->
+		</footer><!-- footer bottom end -->
+</body>
+</html>
