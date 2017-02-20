@@ -1,0 +1,73 @@
+Hello. In this video we are going
+to talk about how Spark actually decides how to execute
+your data analysis pipeline using directed acyclic graph scheduler. And I think this is really important
+to understand how Spark works, and is one of the most fascinating
+features about Spark. So let's first start by the definition, what's exactly is
+a directed acyclic graph? So first of all, it's a graph. So it's a collection of nodes, you see
+here demoted by letters A B C and so on, which are connected by edges and
+in particular this is a directed graph, so these edges have a definite direction. They are actually arrows and
+with this you can define the tendencies between one node and
+another node. And also those graphs are acyclic. So if you star from a node and then you follow arrows down, you can
+never go back to the previous node. Okay, so there cannot be
+circular dependency in this. In fact, this is used for
+dependency tracking a lot and In particular, if you think
+about this as a dependency flow, you can think about, for example,
+B depending on A, and F depending on E. And you can think about the data
+analysis pipeline where A and G are your sources and then you go
+through several transformation steps and then you get the final results which is F. And so this is used for
+dependency tracking also in other system not just in Spark and
+this is also known as keeping the lineage of your transformation or
+keeping provenance. And so in Spark out the DAG is used,
+so the nodes are your RDDs, and the arrows are your transformations. Okay? So, you can describe your work flow as a transformation, complicated graph of transformations
+between different RDDs. So let's first take a look at
+just one single transformation. So what you see here you
+remember we were comparing narrow against wide transformations. And here you have one element, one partition which is
+depending on another partition. And so the system is used by Spark
+also to recover lost partitions. So if for some reason,
+maybe one node fails or some process goes out of memory or
+there's some disk issues. Spark exactly knows how
+to recover your data by going back through
+the execution graph and re-executing whatever is needed
+to recreate your lost data. So, you know, narrow operation
+is pretty easy because it's a one to one connection
+between different partitions. And instead on a wide transformation. Of course, dependency is more complex. So if we were to lose the first partition. In the case that contains A, 1, and 2, we would need to recreate the two sources. So now let's look at a little
+more complicated example. Let's go back to our usual
+word count task case. Here we are chaining, so
+we are using our transformation to tell park how we want to process out data,
+so, here, we want to go. We want to apply, first, a flat map,
+and then a map operation. Okay?
+And this is the result we want to obtain. So let's write this as
+a transformation with our diagrams. So you see here the left RDD is our initial text RDD
+where each element is aligned. And then flatMap
+transformed this in another RDD where each element
+now instead is a word. And then we have a map that transformed
+the word in key value pairs. And then, finally, groupbyKey,
+that takes the sum of all our counts across
+all of our data sets. So you see here that in case we lose a partition, Spark knows the lineage so
+knows how the dependency is going so needs to recover everything that
+has been lost from the beginning. And the same for the second node. It's going to go back down to HDFS and read the relevant part of the data that has been lost and
+then reprocess everything. Through the final output. So let's now take a look at
+a little more complicated example where we have two different data
+sets being read from disks. So you see the bottom two
+nodes are exactly the same operations that we've been doing before,
+but we can assume that there isn't,
+for example, in another RDD which is
+being joined with this RDD. Join is another wide transformation that takes all the keys from the first RDD, and take their values. And joins them with the values on
+the second RDD that have the same key. And so, here, you see that. If you follow the colors, you can see if a partition is lost
+at the very last RDD. Then we can track all
+its dependencies back. And there is also another very
+important feature, which is accomplished by this tag, and
+that is also the execution order. So, by building this
+[INAUDIBLE] of dependencies. Spark can understand what part of
+your pipeline can run in parallel. So here we see that the two sections, the two processing of the RDDs
+are independent one to the other. And so
+they can run independently in parallel. And then when they both are completed
+the join operation can happen. And also local chain of
+local operation can be optimized by Spark and
+can be run simultaneously. For example our data set at
+the bottom we have a flatMap. And in map operation,
+these two operations are both local. So they can be executed at the same time
+by the same process without even actually writing ever the intermediate step. And so this is another way this helps
+optimizing your data analysis workflow. In the next video,
+we are going to dig into actions which like collect and take are those types that
+close each data analysis job.
