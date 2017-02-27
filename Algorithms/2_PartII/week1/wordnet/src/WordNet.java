@@ -25,7 +25,8 @@ public class WordNet {
     public int distance(String nounA, String nounB){
         if(nounA == null) throw new NullPointerException("nounA is null");
         if(nounB == null) throw new NullPointerException("nounB is null");
-
+        if(!isNoun(nounA)) throw new IllegalArgumentException("nounA is not wordnet noun");
+        if(!isNoun(nounB)) throw new IllegalArgumentException("nounB is not wordnet noun");
     }
 
     // a synset (second field of synsets.txt) that is the common ancestor of nounA and nounB
@@ -33,6 +34,8 @@ public class WordNet {
     public String sap(String nounA, String nounB){
         if(nounA == null) throw new NullPointerException("nounA is null");
         if(nounB == null) throw new NullPointerException("nounB is null");
+        if(!isNoun(nounA)) throw new IllegalArgumentException("nounA is not wordnet noun");
+        if(!isNoun(nounB)) throw new IllegalArgumentException("nounB is not wordnet noun");
 
     }
 
