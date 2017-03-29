@@ -25,11 +25,11 @@ object WikipediaRanking {
   val wikiRdd: RDD[WikipediaArticle] = sc.textFile(WikipediaData.filePath).map(WikipediaData.parse)
 
   /** Returns the number of articles on which the language `lang` occurs.
-   *  Hint1: consider using method `aggregate` on RDD[T].
-   *  Hint2: consider using method `mentionsLanguage` on `WikipediaArticle`
-   */
+    * Hint1: consider using method `aggregate` on RDD[T].
+    * Hint2: consider using method `mentionsLanguage` on `WikipediaArticle`
+    */
   def occurrencesOfLang(lang: String, rdd: RDD[WikipediaArticle]): Int =
-    rdd.aggregate(0)((_,a) => { if(a.mentionsLanguage(lang)) 1 else 0}, _+_ )
+    rdd.aggregate(0)( (x , a) => x + {if (a.mentionsLanguage(lang)) 1 else 0} , _ + _ )
 
   /* (1) Use `occurrencesOfLang` to compute the ranking of the languages
    *     (`val langs`) by determining the number of Wikipedia articles that
@@ -39,9 +39,10 @@ object WikipediaRanking {
    *   Note: this operation is long-running. It can potentially run for
    *   several seconds.
    */
-  def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] =
-    langs.map(lang => (lang,occurrencesOfLang(lang,rdd))).sortWith( _._2 > _._2)
-
+  def rankLangs(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] ={
+    rdd.cache()
+    langs.map(lang => (lang, occurrencesOfLang(lang, rdd))).sortBy(-_._2)
+  }
   /* Compute an inverted index of the set of articles, mapping each language
    * to the Wikipedia pages in which it occurs.
    */
@@ -66,8 +67,8 @@ object WikipediaRanking {
    *   several seconds.
    */
   def rankLangsReduceByKey(langs: List[String], rdd: RDD[WikipediaArticle]): List[(String, Int)] =
-    rdd.flatMap(art => langs.filter(art.mentionsLanguage(_)).map((_,1)))
-    .reduceByKey(_+_).collect().toList
+    rdd.flatMap(art => langs.filter(art.mentionsLanguage).map((_,1)))
+    .reduceByKey(_+_).sortBy(_._2,false).collect().toList
 
   def main(args: Array[String]) {
 
